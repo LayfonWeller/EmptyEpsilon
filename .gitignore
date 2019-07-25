@@ -35,3 +35,7 @@ thumbs.db
 *.swp
 
 options.ini
+
+/.history
+/build
+cmake.check_cache
