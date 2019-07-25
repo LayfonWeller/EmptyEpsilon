@@ -8,7 +8,7 @@ class Artifact : public SpaceObject, public Updatable
 private:
     string current_model_data_name;
     string model_data_name;
-    bool allow_pickup;
+    bool allow_pickup = false;
 public:
     Artifact();
 

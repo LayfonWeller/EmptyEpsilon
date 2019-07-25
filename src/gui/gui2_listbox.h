@@ -10,11 +10,11 @@ class GuiListbox : public GuiEntryList
 {
 protected:
     std::vector<GuiButton*> buttons;
-    float text_size;
-    float button_height;
-    EGuiAlign text_alignment;
-    sf::Color selected_color;
-    sf::Color unselected_color;
+    float text_size = 30;
+    float button_height = 50;
+    EGuiAlign text_alignment = ACenter;
+    sf::Color selected_color = sf::Color::White;
+    sf::Color unselected_color = sf::Color(192, 192, 192, 255);;
     GuiScrollbar* scroll;
     sf::FloatRect last_rect;
 public:

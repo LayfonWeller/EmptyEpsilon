@@ -10,8 +10,8 @@ class FighterAI : public ShipAI
         dive,
         evade,
         recharge
-    } attack_state;
-    float timeout;
+    } attack_state = dive;
+    float timeout = 0.0;
     float evade_direction;
     float aggression;
 public:

@@ -6,7 +6,6 @@
 GuiSlider::GuiSlider(GuiContainer* owner, string id, float min_value, float max_value, float start_value, func_t func)
 : GuiElement(owner, id), min_value(min_value), max_value(max_value), value(start_value), func(func)
 {
-    overlay_label = nullptr;
 }
 
 void GuiSlider::onDraw(sf::RenderTarget& window)

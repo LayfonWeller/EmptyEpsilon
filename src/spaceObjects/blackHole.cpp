@@ -15,7 +15,6 @@ REGISTER_MULTIPLAYER_CLASS(BlackHole, "BlackHole");
 BlackHole::BlackHole()
 : SpaceObject(5000, "BlackHole")
 {
-    update_delta = 0.0;
     PathPlannerManager::getInstance()->addAvoidObject(this, 7000);
     setRadarSignatureInfo(0.9, 0, 0);
 }

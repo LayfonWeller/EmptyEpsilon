@@ -1,7 +1,7 @@
 #include "gui2_progressbar.h"
 
 GuiProgressbar::GuiProgressbar(GuiContainer* owner, string id, float min, float max, float value)
-: GuiElement(owner, id), min(min), max(max), value(value), color(sf::Color(255, 255, 255, 64)), drawBackground(true)
+: GuiElement(owner, id), min(min), max(max), value(value)
 {
 }
 
@@ -42,7 +42,7 @@ GuiProgressbar* GuiProgressbar::setRange(float min, float max)
 
 GuiProgressbar* GuiProgressbar::setText(string text)
 {
-    this->text = text;
+    this->text = std::move(text);
     return this;
 }
 

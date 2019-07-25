@@ -3,22 +3,6 @@
 #include "spaceObjects/beamEffect.h"
 #include "spaceObjects/spaceObject.h"
 
-BeamWeapon::BeamWeapon()
-{
-    arc = 0;
-    direction = 0;
-    range = 0;
-    turret_arc = 0.0;
-    turret_direction = 0.0;
-    turret_rotation_rate = 0.0;
-    cycle_time = 6.0;
-    cooldown = 0.0;
-    damage = 1.0;
-    energy_per_beam_fire = 3.0;
-    heat_per_beam_fire = 0.02;
-    parent = nullptr;
-}
-
 void BeamWeapon::setParent(SpaceShip* parent)
 {
     assert(!this->parent);

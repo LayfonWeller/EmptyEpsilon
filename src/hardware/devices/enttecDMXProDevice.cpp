@@ -5,10 +5,6 @@
 EnttecDMXProDevice::EnttecDMXProDevice()
 : update_thread(&EnttecDMXProDevice::updateLoop, this)
 {
-    port = nullptr;
-    for(int n=0; n<512; n++)
-        channel_data[n] = 0;
-    channel_count = 512;
 }
 
 EnttecDMXProDevice::~EnttecDMXProDevice()

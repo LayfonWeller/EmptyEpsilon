@@ -9,7 +9,7 @@
 #define OPT_SETTING(key, variable, effect_name, default) \
     if (settings.find(key) == settings.end()) { variable = default; } else { variable = convertOutput(settings[key]); }
 
-float HardwareMappingEffect::convertOutput(string number)
+float HardwareMappingEffect::convertOutput(const string& number)
 {
     if (number.startswith("$"))
         return float(number.substr(1).toInt(16)) / 255;

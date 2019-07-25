@@ -12,7 +12,7 @@ private:
         TM_None,
         TM_Tiled,
         TM_Centered
-    } texture_mode;
+    } texture_mode = TM_None;
     string texture;
 public:
     GuiOverlay(GuiContainer* owner, string id, sf::Color color);

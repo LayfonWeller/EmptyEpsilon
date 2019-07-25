@@ -58,8 +58,6 @@ CpuShip::CpuShip()
 
     comms_script_name = "comms_ship.lua";
 
-    missile_resupply = 0.0;
-
     if (game_server)
         ai = ShipAIFactory::getAIFactory("default")(this);
     else

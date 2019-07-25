@@ -11,12 +11,12 @@ class SerialPort;
 class EnttecDMXProDevice : public HardwareOutputDevice
 {
 private:
-    SerialPort* port;
+    SerialPort* port = nullptr;
     sf::Thread update_thread;
     
-    bool run_thread;
-    int channel_count;
-    uint8_t channel_data[512];
+    bool run_thread = false;
+    int channel_count = 512;
+    uint8_t channel_data[512] = {0};
 public:
     EnttecDMXProDevice();
     virtual ~EnttecDMXProDevice();

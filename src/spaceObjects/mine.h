@@ -13,10 +13,10 @@ class Mine : public SpaceObject, public Updatable
 
 public:
     P<SpaceObject> owner;
-    bool triggered;       //Only valid on server.
-    float triggerTimeout; //Only valid on server.
-    float ejectTimeout;   //Only valid on server.
-    float particleTimeout;
+    bool triggered = false;              //Only valid on server.
+    float triggerTimeout = triggerDelay; //Only valid on server.
+    float ejectTimeout = 0.0;   //Only valid on server.
+    float particleTimeout = 0.0;
 
     Mine();
 
@@ -30,7 +30,7 @@ public:
     void eject();
     void explode();
     
-    virtual string getExportLine() { return "Mine():setPosition(" + string(getPosition().x, 0) + ", " + string(getPosition().y, 0) + ")"; }
+    virtual const string& getExportLine() const { return "Mine():setPosition(" + string(getPosition().x, 0) + ", " + string(getPosition().y, 0) + ")"; } 
 
 private:
     const MissileWeaponData& data;

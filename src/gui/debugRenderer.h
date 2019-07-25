@@ -7,12 +7,12 @@ class DebugRenderer : public Renderable, public InputEventHandler
 {
 private:
     sf::Clock fps_timer;
-    float fps;
-    int fps_counter;
+    float fps = 0.0;
+    int fps_counter = 0;
     
-    bool show_fps;
-    bool show_datarate;
-    bool show_timing_graph;
+    bool show_fps = false;
+    bool show_datarate = false;
+    bool show_timing_graph = false;
     
     std::vector<Engine::EngineTiming> timing_graph_points;
 public:

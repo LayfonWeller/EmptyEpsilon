@@ -10,8 +10,8 @@ public:
     
 protected:
     string text;
-    float text_size;
-    func_t func;
+    float text_size = 30;
+    func_t func = nullptr;
     func_t enter_func;
     sf::Clock blink_clock;
 public:

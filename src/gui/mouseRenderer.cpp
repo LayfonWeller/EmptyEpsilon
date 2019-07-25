@@ -4,7 +4,6 @@
 MouseRenderer::MouseRenderer()
 : Renderable(mouseLayer)
 {
-    visible = true;
 }
 
 void MouseRenderer::render(sf::RenderTarget& window)

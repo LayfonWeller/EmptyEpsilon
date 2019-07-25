@@ -6,9 +6,9 @@
 class GuiImage : public GuiElement
 {
 private:
-    sf::Color color;
+    sf::Color color = sf::Color::White;
     string texture_name;
-    float angle;
+    float angle = 0;
 public:
     GuiImage(GuiContainer* owner, string id, string texture_name);
 

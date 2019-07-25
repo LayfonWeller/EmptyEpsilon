@@ -2,10 +2,9 @@
 #include "main.h"
 
 GuiElement::GuiElement(GuiContainer* owner, string id)
-: position_alignment(ATopLeft), owner(owner), rect(0, 0, 0, 0), visible(true), enabled(true), hover(false), focus(false), active(false), id(id)
+: owner(owner), id(std::move(id))
 {
     owner->elements.push_back(this);
-    destroyed = false;
 }
 
 GuiElement::~GuiElement()
@@ -21,21 +20,9 @@ bool GuiElement::onMouseDown(sf::Vector2f position)
     return false;
 }
 
-void GuiElement::onMouseDrag(sf::Vector2f position)
-{
-}
-
-void GuiElement::onMouseUp(sf::Vector2f position)
-{
-}
-
 bool GuiElement::onKey(sf::Event::KeyEvent key, int unicode)
 {
     return false;
-}
-
-void GuiElement::onHotkey(const HotkeyResult& key)
-{
 }
 
 bool GuiElement::onJoystickXYMove(sf::Vector2f position)

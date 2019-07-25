@@ -6,7 +6,6 @@
 GuiButton::GuiButton(GuiContainer* owner, string id, string text, func_t func)
 : GuiElement(owner, id), text(text), func(func)
 {
-    text_size = 30;
 }
 
 void GuiButton::onDraw(sf::RenderTarget& window)

@@ -10,7 +10,7 @@ protected:
     int min_value;
     int max_value;
     int value;
-    int value_size;
+    int value_size = 1;
     func_t func;
     
     bool drag_scrollbar;

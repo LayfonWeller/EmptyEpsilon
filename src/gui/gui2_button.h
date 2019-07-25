@@ -10,7 +10,7 @@ public:
     
 protected:
     string text;
-    float text_size;
+    float text_size = 30;
     EGuiAlign text_alignment;
     func_t func;
     string icon_name;

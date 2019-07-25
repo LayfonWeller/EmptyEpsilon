@@ -2,20 +2,19 @@
 #include "gui2_scrolltext.h"
 
 GuiScrollText::GuiScrollText(GuiContainer* owner, string id, string text)
-: GuiElement(owner, id), text(text), text_size(30)
+: GuiElement(owner, id), text(text)
 {
-    auto_scroll_down = false;
     scrollbar = new GuiScrollbar(this, id + "_SCROLL", 0, 1, 0, nullptr);
     scrollbar->setPosition(0, 0, ATopRight)->setSize(50, GuiElement::GuiSizeMax);
 }
 
 GuiScrollText* GuiScrollText::setText(string text)
 {
-    this->text = text;
+    this->text = std::move(text);
     return this;
 }
 
-string GuiScrollText::getText() const
+const string& GuiScrollText::getText() const
 {
     return text;
 }

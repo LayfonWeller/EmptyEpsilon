@@ -3,7 +3,6 @@
 GuiToggleButton::GuiToggleButton(GuiContainer* owner, string id, string text, func_t func)
 : GuiButton(owner, id, text, [this]() { this->onClick(); }), toggle_func(func)
 {
-    value = false;
 }
 
 bool GuiToggleButton::getValue() const

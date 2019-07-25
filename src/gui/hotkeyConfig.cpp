@@ -229,13 +229,13 @@ std::vector<HotkeyResult> HotkeyConfig::getHotkey(sf::Event::KeyEvent key)
 void HotkeyConfig::newCategory(string key, string name)
 {
     categories.emplace_back();
-    categories.back().key = key;
-    categories.back().name = name;
+    categories.back().key = std::move(key);
+    categories.back().name = std::move(name);
 }
 
 void HotkeyConfig::newKey(string key, std::tuple<string, string> value)
 {
-    categories.back().hotkeys.emplace_back(key, value);
+    categories.back().hotkeys.emplace_back(std::move(key),std::move(value));
 }
 
 std::vector<string> HotkeyConfig::getCategories()

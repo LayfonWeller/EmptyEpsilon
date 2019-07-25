@@ -195,25 +195,11 @@ PlayerSpaceship::PlayerSpaceship()
 : SpaceShip("PlayerSpaceship", 5000)
 {
     // Initialize ship settings
-    main_screen_setting = MSS_Front;
-    main_screen_overlay = MSO_HideComms;
-    hull_damage_indicator = 0.0;
-    jump_indicator = 0.0;
-    comms_state = CS_Inactive;
-    comms_open_delay = 0.0;
+  
     shield_calibration_delay = 0.0;
-    auto_repair_enabled = false;
-    auto_coolant_enabled = false;
-    activate_self_destruct = false;
-    self_destruct_countdown = 0.0;
-    scanning_delay = 0.0;
-    scanning_complexity = 0;
-    scanning_depth = 0;
-    max_scan_probes = 8;
+
     scan_probe_stock = max_scan_probes;
-    scan_probe_recharge = 0.0;
-    alert_level = AL_Normal;
-    shields_active = false;
+
     control_code = "";
 
     setFactionId(1);
@@ -255,8 +241,6 @@ PlayerSpaceship::PlayerSpaceship()
     // Determine which stations must provide self-destruct confirmation codes.
     for(int n = 0; n < max_self_destruct_codes; n++)
     {
-        self_destruct_code[n] = 0;
-        self_destruct_code_confirmed[n] = false;
         self_destruct_code_entry_position[n] = helmsOfficer;
         self_destruct_code_show_position[n] = helmsOfficer;
         registerMemberReplication(&self_destruct_code[n]);

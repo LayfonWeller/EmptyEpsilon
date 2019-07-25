@@ -9,8 +9,6 @@ class SpaceShip;
 class BeamWeapon : public sf::NonCopyable
 {
 public:
-    BeamWeapon();
-
     void fire(P<SpaceObject> target, ESystem system_target);
 
     void setParent(SpaceShip* parent);
@@ -56,21 +54,21 @@ public:
     void update(float delta);
 protected:
     sf::Vector3f position;//Visual position on the 3D model where this beam is fired from.
-    SpaceShip* parent; //The ship that this beam weapon is attached to.
+    SpaceShip* parent = nullptr; //The ship that this beam weapon is attached to.
 
     //Beam configuration
-    float arc;
-    float direction;
-    float range;
-    float turret_arc;
-    float turret_direction;
-    float turret_rotation_rate;
-    float cycle_time;
+    float arc = 0.0;
+    float direction = 0.0;
+    float range = 0.0;
+    float turret_arc = 0.0;
+    float turret_direction =0.0;
+    float turret_rotation_rate =0.0;
+    float cycle_time = 6.0;
     float damage;//Server side only
-    float energy_per_beam_fire;//Server side only
-    float heat_per_beam_fire;//Server side only
+    float energy_per_beam_fire = 3.0;//Server side only
+    float heat_per_beam_fire = 0.02;//Server side only
     //Beam runtime state
-    float cooldown;
+    float cooldown = 0.0;
     string beam_texture;
 };
 

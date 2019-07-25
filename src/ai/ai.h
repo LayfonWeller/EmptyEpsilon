@@ -17,10 +17,10 @@ protected:
     /**!
      * Artificial delay between missile fires. The AI missile fire is 'faked' with this value.
      */
-    float missile_fire_delay;
-    bool has_missiles;
-    bool has_beams;
-    float beam_weapon_range;
+    float missile_fire_delay 0.0;
+    bool has_missiles = false;
+    bool has_beams = false;
+    float beam_weapon_range = 0.0;
     enum class EWeaponDirection
     {
         Front,
@@ -29,10 +29,10 @@ protected:
         Side,
         Rear
     };
-    EWeaponDirection weapon_direction;
+    EWeaponDirection weapon_direction = EWeaponDirection::Front;
     EMissileWeapons best_missile_type;
 
-    float update_target_delay;
+    float update_target_delay = 0.0;
 
     PathPlanner pathPlanner;
 public:

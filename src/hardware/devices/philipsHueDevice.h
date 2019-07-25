@@ -49,13 +49,13 @@ private:
     sf::Mutex mutex;
     std::vector<LightInfo> lights;
     
-    bool run_thread;
+    bool run_thread = false;
 
     void updateLoop();
     
     string ip_address;
     string username;
-    string userfile;
+    constexpr auto userfile = "philips_hue.name";
     int light_count;
 };
 

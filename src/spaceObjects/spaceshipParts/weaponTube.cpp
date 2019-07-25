@@ -8,15 +8,7 @@
 
 WeaponTube::WeaponTube()
 {
-    parent = nullptr;
-    
-    load_time = 8.0;
-    direction = 0;
-    type_allowed_mask = (1 << MW_Count) - 1;
-    type_loaded = MW_None;
-    state = WTS_Empty;
-    delay = 0.0;
-    tube_index = 0;
+
 }
 
 void WeaponTube::setParent(SpaceShip* parent)

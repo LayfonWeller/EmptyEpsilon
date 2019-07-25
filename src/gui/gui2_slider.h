@@ -19,7 +19,7 @@ protected:
     float value;
     std::vector<TSnapPoint> snap_points;
     func_t func;
-    GuiLabel* overlay_label;
+    GuiLabel* overlay_label = nullptr;
 public:
     GuiSlider(GuiContainer* owner, string id, float min_value, float max_value, float start_value, func_t func);
 

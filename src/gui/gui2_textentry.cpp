@@ -2,7 +2,7 @@
 #include "input.h"
 
 GuiTextEntry::GuiTextEntry(GuiContainer* owner, string id, string text)
-: GuiElement(owner, id), text(text), text_size(30), func(nullptr)
+: GuiElement(owner, id), text(text)
 {
 }
 
