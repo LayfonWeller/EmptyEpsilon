@@ -172,18 +172,22 @@ ShipSelectionScreen::ShipSelectionScreen()
 
         // Spawn a ship of the selected template near 0,0 and give it a random
         // heading.
-        (new GuiButton(left_container, "CREATE_SHIP_BUTTON", "Spawn player ship", [this, ship_template_selector]() {
-            P<PlayerSpaceship> ship = new PlayerSpaceship();
+        (new GuiButton(
+             left_container, "CREATE_SHIP_BUTTON", "Spawn player ship",
+             [ship_template_selector]() {
+               P<PlayerSpaceship> ship = new PlayerSpaceship();
 
-            if (ship)
-            {
-                ship->setTemplate(ship_template_selector->getSelectionValue());
-                ship->setRotation(random(0, 360));
-                ship->target_rotation = ship->getRotation();
-                ship->setPosition(sf::Vector2f(random(-100, 100), random(-100, 100)));
-                my_player_info->commandSetShipId(ship->getMultiplayerId());
-            }
-        }))->setPosition(0, 680, ATopCenter)->setSize(490, 50);
+               if (ship) {
+                 ship->setTemplate(ship_template_selector->getSelectionValue());
+                 ship->setRotation(random(0, 360));
+                 ship->target_rotation = ship->getRotation();
+                 ship->setPosition(
+                     sf::Vector2f(random(-100, 100), random(-100, 100)));
+                 my_player_info->commandSetShipId(ship->getMultiplayerId());
+               }
+             }))
+            ->setPosition(0, 680, ATopCenter)
+            ->setSize(490, 50);
 
         // If this is the server, the "back" button goes to the scenario
         // selection/server creation screen.

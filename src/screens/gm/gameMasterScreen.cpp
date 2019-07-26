@@ -30,18 +30,19 @@ GameMasterScreen::GameMasterScreen()
     );
     box_selection_overlay = new GuiOverlay(main_radar, "BOX_SELECTION", sf::Color(255, 255, 255, 32));
     box_selection_overlay->hide();
-    
-    pause_button = new GuiToggleButton(this, "PAUSE_BUTTON", "Pause", [this](bool value) {
-        if (!value)
+
+    pause_button =
+        new GuiToggleButton(this, "PAUSE_BUTTON", "Pause", [](bool value) {
+          if (!value)
             engine->setGameSpeed(1.0f);
-        else
+          else
             engine->setGameSpeed(0.0f);
-    });
+        });
     pause_button->setValue(engine->getGameSpeed() == 0.0f)->setPosition(20, 20, ATopLeft)->setSize(250, 50);
 
-    intercept_comms_button = new GuiToggleButton(this, "INTERCEPT_COMMS_BUTTON", "Intercept all comms", [this](bool value) {
-        gameGlobalInfo->intercept_all_comms_to_gm = value;
-    });
+    intercept_comms_button = new GuiToggleButton(
+        this, "INTERCEPT_COMMS_BUTTON", "Intercept all comms",
+        [](bool value) { gameGlobalInfo->intercept_all_comms_to_gm = value; });
     intercept_comms_button->setValue(gameGlobalInfo->intercept_all_comms_to_gm)->setTextSize(20)->setPosition(300, 20, ATopLeft)->setSize(200, 25);
     
     faction_selector = new GuiSelector(this, "FACTION_SELECTOR", [this](int index, string value) {

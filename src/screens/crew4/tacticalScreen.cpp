@@ -40,57 +40,54 @@ TacticalScreen::TacticalScreen(GuiContainer* owner)
     // Control targeting and piloting with radar interactions.
     radar->setCallbacks(
         [this](sf::Vector2f position) {
-            targets.setToClosestTo(position, 250, TargetsContainer::Targetable);
-            if (my_spaceship && targets.get())
-                my_spaceship->commandSetTarget(targets.get());
-            else if (my_spaceship)
-                my_spaceship->commandTargetRotation(sf::vector2ToAngle(position - my_spaceship->getPosition()));
+          targets.setToClosestTo(position, 250, TargetsContainer::Targetable);
+          if (my_spaceship && targets.get())
+            my_spaceship->commandSetTarget(targets.get());
+          else if (my_spaceship)
+            my_spaceship->commandTargetRotation(
+                sf::vector2ToAngle(position - my_spaceship->getPosition()));
         },
-        [this](sf::Vector2f position) {
-            if (my_spaceship)
-                my_spaceship->commandTargetRotation(sf::vector2ToAngle(position - my_spaceship->getPosition()));
+        [](sf::Vector2f position) {
+          if (my_spaceship)
+            my_spaceship->commandTargetRotation(
+                sf::vector2ToAngle(position - my_spaceship->getPosition()));
         },
-        [this](sf::Vector2f position) {
-            if (my_spaceship)
-                my_spaceship->commandTargetRotation(sf::vector2ToAngle(position - my_spaceship->getPosition()));
-        }
-    );
+        [](sf::Vector2f position) {
+          if (my_spaceship)
+            my_spaceship->commandTargetRotation(
+                sf::vector2ToAngle(position - my_spaceship->getPosition()));
+        });
 
     // Joystick controls.
     radar->setJoystickCallbacks(
-        [this](float x_position) {
-            if (my_spaceship)
-            {
-                float angle = my_spaceship->getRotation() + x_position;
-                my_spaceship->commandTargetRotation(angle);
-            }
+        [](float x_position) {
+          if (my_spaceship) {
+            float angle = my_spaceship->getRotation() + x_position;
+            my_spaceship->commandTargetRotation(angle);
+          }
         },
-        [this](float y_position) {
-            if (my_spaceship && (fabs(y_position) > 20))
-            {
-                // Add some more hysteresis, since y-axis can be hard to keep at 0
-                float value;
-                if (y_position > 0)
-                    value = (y_position-20) * 1.25 / 100;
-                else
-                    value = (y_position+20) * 1.25 / 100;
+        [](float y_position) {
+          if (my_spaceship && (fabs(y_position) > 20)) {
+            // Add some more hysteresis, since y-axis can be hard to keep at 0
+            float value;
+            if (y_position > 0)
+              value = (y_position - 20) * 1.25 / 100;
+            else
+              value = (y_position + 20) * 1.25 / 100;
 
-                my_spaceship->commandCombatManeuverBoost(-value);
-            }
-            else if (my_spaceship)
-            {
-                my_spaceship->commandCombatManeuverBoost(0.0);
-            }
+            my_spaceship->commandCombatManeuverBoost(-value);
+          } else if (my_spaceship) {
+            my_spaceship->commandCombatManeuverBoost(0.0);
+          }
         },
-        [this](float z_position) {
-            if (my_spaceship)
-                my_spaceship->commandImpulse(-(z_position / 100));
+        [](float z_position) {
+          if (my_spaceship)
+            my_spaceship->commandImpulse(-(z_position / 100));
         },
-        [this](float r_position) {
-            if (my_spaceship)
-                my_spaceship->commandCombatManeuverStrafe(r_position / 100);
-        }
-    );
+        [](float r_position) {
+          if (my_spaceship)
+            my_spaceship->commandCombatManeuverStrafe(r_position / 100);
+        });
 
     // Ship statistics in the top left corner.
     energy_display = new GuiKeyValueDisplay(this, "ENERGY_DISPLAY", 0.45, "Energy", "");

@@ -109,10 +109,10 @@ OptionsMenu::OptionsMenu()
     // and lists them by filename.
     // TODO: Associate ambient and combat music within the list.
     top += 50;
-    GuiListbox* music_list = new GuiListbox(this, "MUSIC_PLAY", [this](int index, string value)
-    {
-        soundManager->playMusic(value);
-    });
+    GuiListbox *music_list =
+        new GuiListbox(this, "MUSIC_PLAY", [](int index, string value) {
+          soundManager->playMusic(value);
+        });
     music_list->setPosition(-50, top, ATopRight)->setSize(600, 800);
 
     std::vector<string> music_filenames = findResources("music/*.ogg");

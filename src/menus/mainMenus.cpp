@@ -89,9 +89,9 @@ MainMenu::MainMenu()
         destroy();
     }))->setPosition(sf::Vector2f(50, -110), ABottomLeft)->setSize(300, 50);
 
-    (new GuiButton(this, "QUIT", "Quit", [this]() {
-        engine->shutdown();
-    }))->setPosition(sf::Vector2f(50, -50), ABottomLeft)->setSize(300, 50);
+    (new GuiButton(this, "QUIT", "Quit", []() { engine->shutdown(); }))
+        ->setPosition(sf::Vector2f(50, -50), ABottomLeft)
+        ->setSize(300, 50);
 
     (new GuiButton(this, "START_TUTORIAL", "Tutorials", [this]() {
         new TutorialMenu();
