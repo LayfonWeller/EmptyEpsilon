@@ -30,7 +30,7 @@ public:
     void eject();
     void explode();
     
-    virtual const string& getExportLine() const { return "Mine():setPosition(" + string(getPosition().x, 0) + ", " + string(getPosition().y, 0) + ")"; } 
+    virtual string getExportLine();
 
 private:
     const MissileWeaponData& data;

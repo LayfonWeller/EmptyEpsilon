@@ -13,8 +13,6 @@
 #include "devices/uDMXDevice.h"
 #include "devices/philipsHueDevice.h"
 
-#include <string_view>
-
 #include "hardwareMappingEffects.h"
 
 HardwareController::~HardwareController()
@@ -27,7 +25,7 @@ HardwareController::~HardwareController()
         delete event.effect;
 }
 
-void HardwareController::loadConfiguration(const std::string_view filename)
+void HardwareController::loadConfiguration(const string& filename)
 {
     FILE* f = fopen(filename.c_str(), "r");
     if (!f)

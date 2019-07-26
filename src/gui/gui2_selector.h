@@ -8,7 +8,7 @@ class GuiArrowButton;
 class GuiSelector : public GuiEntryList
 {
 protected:
-    float text_size = 30
+    float text_size = 30;
     EGuiAlign text_alignment;
     GuiArrowButton* left;
     GuiArrowButton* right;

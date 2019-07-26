@@ -6,11 +6,6 @@
 #include "spaceObjects/hvli.h"
 #include "spaceObjects/spaceship.h"
 
-WeaponTube::WeaponTube()
-{
-
-}
-
 void WeaponTube::setParent(SpaceShip* parent)
 {
     assert(!this->parent);

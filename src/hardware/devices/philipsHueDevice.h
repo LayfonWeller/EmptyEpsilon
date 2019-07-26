@@ -55,7 +55,7 @@ private:
     
     string ip_address;
     string username;
-    constexpr auto userfile = "philips_hue.name";
+    string userfile = "philips_hue.name";
     int light_count;
 };
 

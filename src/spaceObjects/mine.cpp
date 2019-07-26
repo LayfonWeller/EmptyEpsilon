@@ -110,7 +110,7 @@ void Mine::explode()
 }
 
 
-const string& Mine::getExportLine() const
+string Mine::getExportLine()
 {
     return "Mine():setPosition(" + string(getPosition().x, 0) + ", " + string(getPosition().y, 0) + ")"; 
 } 

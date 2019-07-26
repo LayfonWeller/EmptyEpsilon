@@ -58,7 +58,7 @@ public:
     HardwareController() = default;
     ~HardwareController();
     
-    void loadConfiguration(string filename);
+    void loadConfiguration(const string& filename);
     
     virtual void update(float delta);
 

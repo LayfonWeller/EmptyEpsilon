@@ -16,7 +16,7 @@ public:
     }
 };
 
-VirtualOutputDevice::VirtualOutputDevice()
+VirtualOutputDevice::VirtualOutputDevice() {
     for(int n=0; n<512; n++)
     {
         channel_data[n].value = 0;

@@ -17,7 +17,7 @@ protected:
     /**!
      * Artificial delay between missile fires. The AI missile fire is 'faked' with this value.
      */
-    float missile_fire_delay 0.0;
+    float missile_fire_delay = 0.0;
     bool has_missiles = false;
     bool has_beams = false;
     float beam_weapon_range = 0.0;
