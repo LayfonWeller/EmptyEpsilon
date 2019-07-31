@@ -46,7 +46,7 @@ void PreferencesManager::save(string filename)
         fprintf(f, "# Include the following line to enable an experimental http server:\n# httpserver=8080\n\n");
         fprintf(f, "# For possible hotkey values check: http://www.sfml-dev.org/documentation/2.3.1/classsf_1_1Keyboard.php#acb4cacd7cc5802dec45724cf3314a142\n\n");
         std::vector<string> keys;
-        for(std::unordered_map<string, string>::iterator i = preference.begin(); i != preference.end(); i++)
+        for(std::unordered_map<string, string>::iterator i = preference.begin(); i != preference.end(); ++i)
         {
             keys.push_back(i->first);
         }

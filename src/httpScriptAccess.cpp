@@ -65,7 +65,7 @@ bool HttpScriptHandler::handleRequest(HttpRequest& request, HttpServerConnection
                   "return {";
 
         // Loop through URL parameters
-        for (i = request.parameters.begin(); i != request.parameters.end(); i++)
+        for (i = request.parameters.begin(); i != request.parameters.end(); ++i)
         {
             // Fail if trying to set stuff. We only do get.
             if (i->second.substr(0, 3) == "set")
@@ -134,7 +134,7 @@ bool HttpScriptHandler::handleRequest(HttpRequest& request, HttpServerConnection
         luaCode = "object = " + objectId + "\n" +
                "if object == nil then return {error = \"No valid object\"} end\n";
 
-        for (i = request.parameters.begin(); i != request.parameters.end(); i++)
+        for (i = request.parameters.begin(); i != request.parameters.end(); ++i)
         {
             if (i->second == "")
                 luaCode += "object:" + i->first + ";\n";
