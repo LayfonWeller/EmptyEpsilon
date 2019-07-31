@@ -14,7 +14,7 @@ public:
 
     virtual void update(float delta);
 
-    virtual void drawOnRadar(sf::RenderTarget& window, sf::Vector2f position, float scale, bool long_range);
+    virtual void drawOnRadar(sf::RenderTarget& window, sf::Vector2f position, float scale, bool long_range) override;
 
     virtual void collide(Collisionable* target, float force) override;
 
@@ -22,7 +22,7 @@ public:
     void explode();
     void allowPickup(bool allow);
     
-    virtual string getExportLine();
+    virtual string getExportLine() override;
 };
 
 #endif//ARTIFACT_H

@@ -23,8 +23,8 @@ public:
 #if FEATURE_3D_RENDERING
     virtual void draw3DTransparent();
 #endif
-    virtual void drawOnRadar(sf::RenderTarget& window, sf::Vector2f position, float scale, bool long_range);
-    virtual void drawOnGMRadar(sf::RenderTarget& window, sf::Vector2f position, float scale, bool long_range);
+    virtual void drawOnRadar(sf::RenderTarget& window, sf::Vector2f position, float scale, bool long_range) override;
+    virtual void drawOnGMRadar(sf::RenderTarget& window, sf::Vector2f position, float scale, bool long_range) override;
     virtual bool canHideInNebula() { return false; }
     
     static bool inNebula(sf::Vector2f position);
@@ -32,7 +32,7 @@ public:
     static sf::Vector2f getFirstBlockedPosition(sf::Vector2f start, sf::Vector2f end);
     static PVector<Nebula> getNebulas();
     
-    virtual string getExportLine() { return "Nebula():setPosition(" + string(getPosition().x, 0) + ", " + string(getPosition().y, 0) + ")"; }
+    virtual string getExportLine() override { return "Nebula():setPosition(" + string(getPosition().x, 0) + ", " + string(getPosition().y, 0) + ")"; }
 };
 
 #endif//NEBULA_H

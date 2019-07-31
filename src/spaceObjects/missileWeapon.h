@@ -19,7 +19,7 @@ public:
 
     MissileWeapon(string multiplayerName, const MissileWeaponData& data);
 
-    virtual void drawOnRadar(sf::RenderTarget& window, sf::Vector2f position, float scale, bool long_range);
+    virtual void drawOnRadar(sf::RenderTarget& window, sf::Vector2f position, float scale, bool long_range) override;
     virtual void update(float delta);
 
     virtual void collide(Collisionable* target, float force) override;
