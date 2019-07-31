@@ -12,7 +12,7 @@ private:
 public:
     GuiImage(GuiContainer* owner, string id, string texture_name);
 
-    virtual void onDraw(sf::RenderTarget& window);
+    virtual void onDraw(sf::RenderTarget& window) override;
     
     GuiImage* setColor(sf::Color color) { this->color = color; return this; }
     GuiImage* setAngle(float angle) { this->angle = angle; return this; }

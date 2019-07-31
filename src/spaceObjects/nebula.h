@@ -21,11 +21,11 @@ public:
     Nebula();
 
 #if FEATURE_3D_RENDERING
-    virtual void draw3DTransparent();
+    virtual void draw3DTransparent() override;
 #endif
     virtual void drawOnRadar(sf::RenderTarget& window, sf::Vector2f position, float scale, bool long_range) override;
     virtual void drawOnGMRadar(sf::RenderTarget& window, sf::Vector2f position, float scale, bool long_range) override;
-    virtual bool canHideInNebula() { return false; }
+    virtual bool canHideInNebula() override final { return false; }
     
     static bool inNebula(sf::Vector2f position);
     static bool blockedByNebula(sf::Vector2f start, sf::Vector2f end);

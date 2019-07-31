@@ -16,7 +16,7 @@ private:
 public:
     GuiProgressbar(GuiContainer* owner, string id, float min, float max, float value);
 
-    virtual void onDraw(sf::RenderTarget& window);
+    virtual void onDraw(sf::RenderTarget& window) override;
 
     GuiProgressbar* setValue(float value);
     GuiProgressbar* setRange(float min, float max);

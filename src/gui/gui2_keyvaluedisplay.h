@@ -15,7 +15,7 @@ protected:
 public:
     GuiKeyValueDisplay(GuiContainer* owner, string id, float div_distance, string key, string value);
 
-    virtual void onDraw(sf::RenderTarget& window);
+    virtual void onDraw(sf::RenderTarget& window) override;
     
     GuiKeyValueDisplay* setKey(string key);
     GuiKeyValueDisplay* setValue(string value);

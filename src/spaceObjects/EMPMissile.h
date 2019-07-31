@@ -11,7 +11,7 @@ class EMPMissile : public MissileWeapon
 public:
     EMPMissile();
     
-    virtual void hitObject(P<SpaceObject> object);
+    virtual void hitObject(P<SpaceObject> object) override;
 };
 
 #endif//EMP_MISSILE_H

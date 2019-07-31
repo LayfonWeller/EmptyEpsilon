@@ -23,10 +23,10 @@ protected:
 public:
     GuiSlider(GuiContainer* owner, string id, float min_value, float max_value, float start_value, func_t func);
 
-    virtual void onDraw(sf::RenderTarget& window);
-    virtual bool onMouseDown(sf::Vector2f position);
-    virtual void onMouseDrag(sf::Vector2f position);
-    virtual void onMouseUp(sf::Vector2f position);
+    virtual void onDraw(sf::RenderTarget& window) override;
+    virtual bool onMouseDown(sf::Vector2f position) override;
+    virtual void onMouseDrag(sf::Vector2f position) override;
+    virtual void onMouseUp(sf::Vector2f position) override;
     
     GuiSlider* clearSnapValues();
     GuiSlider* addSnapValue(float value, float range);
@@ -55,10 +55,10 @@ protected:
 public:
     GuiSlider2D(GuiContainer* owner, string id, sf::Vector2f min_value, sf::Vector2f max_value, sf::Vector2f start_value, func_t func);
 
-    virtual void onDraw(sf::RenderTarget& window);
-    virtual bool onMouseDown(sf::Vector2f position);
-    virtual void onMouseDrag(sf::Vector2f position);
-    virtual void onMouseUp(sf::Vector2f position);
+    virtual void onDraw(sf::RenderTarget& window) override;
+    virtual bool onMouseDown(sf::Vector2f position) override;
+    virtual void onMouseDrag(sf::Vector2f position) override;
+    virtual void onMouseUp(sf::Vector2f position) override;
     
     GuiSlider2D* clearSnapValues();
     GuiSlider2D* addSnapValue(sf::Vector2f value, sf::Vector2f range);

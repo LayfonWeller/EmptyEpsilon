@@ -11,7 +11,7 @@ class Nuke : public MissileWeapon
 public:
     Nuke();
 
-    virtual void hitObject(P<SpaceObject> object);
+    virtual void hitObject(P<SpaceObject> object) override;
 };
 
 #endif//NUKE_H

@@ -69,7 +69,7 @@ private:
 public:
     GuiRadarView(GuiContainer* owner, string id, float distance, TargetsContainer* targets);
 
-    virtual void onDraw(sf::RenderTarget& window);
+    virtual void onDraw(sf::RenderTarget& window) override;
 
     GuiRadarView* setDistance(float distance) { this->distance = distance; return this; }
     float getDistance() { return distance; }
@@ -102,12 +102,12 @@ public:
     sf::Vector2f worldToScreen(sf::Vector2f world_position);
     sf::Vector2f screenToWorld(sf::Vector2f screen_position);
 
-    virtual bool onMouseDown(sf::Vector2f position);
-    virtual void onMouseDrag(sf::Vector2f position);
-    virtual void onMouseUp(sf::Vector2f position);
-    virtual bool onJoystickXYMove(sf::Vector2f position);
-    virtual bool onJoystickZMove(float position);
-    virtual bool onJoystickRMove(float position);
+    virtual bool onMouseDown(sf::Vector2f position) override;
+    virtual void onMouseDrag(sf::Vector2f position) override;
+    virtual void onMouseUp(sf::Vector2f position) override;
+    virtual bool onJoystickXYMove(sf::Vector2f position) override;
+    virtual bool onJoystickZMove(float position) override;
+    virtual bool onJoystickRMove(float position) override;
 private:
     void updateGhostDots();
 

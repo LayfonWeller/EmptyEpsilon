@@ -23,11 +23,11 @@ public:
     GuiListbox* setTextSize(float size);
     GuiListbox* setButtonHeight(float height);
 
-    virtual void onDraw(sf::RenderTarget& window);
-    virtual bool onMouseDown(sf::Vector2f position);
-    virtual void onMouseUp(sf::Vector2f position);
+    virtual void onDraw(sf::RenderTarget& window) override final;
+    virtual bool onMouseDown(sf::Vector2f position) override final;
+    virtual void onMouseUp(sf::Vector2f position) override final;
 private:
-    virtual void entriesChanged();
+    virtual void entriesChanged() override;
 };
 
 #endif//GUI2_LISTBOX_H

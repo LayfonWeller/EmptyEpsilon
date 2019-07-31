@@ -1101,10 +1101,10 @@ void SpaceShip::addBroadcast(int threshold, string message)
 
     for(int n=0; n<GameGlobalInfo::max_player_ships; n++)
     {
-        bool addtolog = 0;
         P<PlayerSpaceship> ship = gameGlobalInfo->getPlayerShip(n);
         if (ship)
         {
+            bool addtolog = 0;
             if (this->isFriendly(ship))
             {
                 color = sf::Color(154,255,154); //ally = light green

@@ -53,7 +53,7 @@ public:
     virtual bool canSwitchAI();
 
 
-    virtual void drawOnGMRadar(sf::RenderTarget& window, sf::Vector2f draw_position, float scale) override;
+    virtual void drawOnGMRadar(sf::RenderTarget& window, sf::Vector2f draw_position, float scale);
 protected:
     virtual void updateWeaponState(float delta);
     virtual void updateTarget();

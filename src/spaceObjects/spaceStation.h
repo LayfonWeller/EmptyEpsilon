@@ -9,9 +9,9 @@ public:
     SpaceStation();
     
     virtual void drawOnRadar(sf::RenderTarget& window, sf::Vector2f position, float scale, bool long_range) override;
-    virtual bool canBeDockedBy(P<SpaceObject> obj);
-    virtual void destroyedByDamage(DamageInfo& info);
-    virtual void applyTemplateValues();
+    virtual bool canBeDockedBy(P<SpaceObject> obj) override;
+    virtual void destroyedByDamage(DamageInfo& info) override;
+    virtual void applyTemplateValues() override;
 
     virtual string getExportLine() override;
 };

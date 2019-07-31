@@ -17,7 +17,7 @@ private:
 public:
     GuiOverlay(GuiContainer* owner, string id, sf::Color color);
 
-    virtual void onDraw(sf::RenderTarget& window);
+    virtual void onDraw(sf::RenderTarget& window) override;
     
     GuiOverlay* setColor(sf::Color color);
     GuiOverlay* setAlpha(int alpha);

@@ -19,9 +19,9 @@ protected:
 public:
     GuiButton(GuiContainer* owner, string id, string text, func_t func);
 
-    virtual void onDraw(sf::RenderTarget& window);
-    virtual bool onMouseDown(sf::Vector2f position);
-    virtual void onMouseUp(sf::Vector2f position);
+    virtual void onDraw(sf::RenderTarget& window) override;
+    virtual bool onMouseDown(sf::Vector2f position) override;
+    virtual void onMouseUp(sf::Vector2f position) override;
     
     GuiButton* setText(string text);
     GuiButton* setTextSize(float size);

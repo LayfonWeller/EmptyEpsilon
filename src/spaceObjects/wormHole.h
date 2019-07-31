@@ -19,7 +19,7 @@ public:
     WormHole();
 
 #if FEATURE_3D_RENDERING
-    virtual void draw3DTransparent();
+    virtual void draw3DTransparent() override;
 #endif//FEATURE_3D_RENDERING
     virtual void drawOnRadar(sf::RenderTarget& window, sf::Vector2f position, float scale, bool long_range) override;
     virtual void drawOnGMRadar(sf::RenderTarget& window, sf::Vector2f position, float scale, bool long_range) override;
