@@ -3,22 +3,6 @@
 #include "spaceObjects/beamEffect.h"
 #include "spaceObjects/spaceObject.h"
 
-BeamWeapon::BeamWeapon()
-{
-    arc = 0;
-    direction = 0;
-    range = 0;
-    turret_arc = 0.0;
-    turret_direction = 0.0;
-    turret_rotation_rate = 0.0;
-    cycle_time = 6.0;
-    cooldown = 0.0;
-    damage = 1.0;
-    energy_per_beam_fire = 3.0;
-    heat_per_beam_fire = 0.02;
-    parent = nullptr;
-}
-
 void BeamWeapon::setParent(SpaceShip* parent)
 {
     assert(!this->parent);
@@ -39,7 +23,7 @@ void BeamWeapon::setArc(float arc)
     this->arc = arc;
 }
 
-float BeamWeapon::getArc()
+float BeamWeapon::getArc() const
 {
     return arc;
 }
@@ -49,7 +33,7 @@ void BeamWeapon::setDirection(float direction)
     this->direction = direction;
 }
 
-float BeamWeapon::getDirection()
+float BeamWeapon::getDirection() const
 {
     return direction;
 }
@@ -59,7 +43,7 @@ void BeamWeapon::setRange(float range)
     this->range = range;
 }
 
-float BeamWeapon::getRange()
+float BeamWeapon::getRange() const
 {
     return range;
 }
@@ -69,7 +53,7 @@ void BeamWeapon::setTurretArc(float arc)
     this->turret_arc = arc;
 }
 
-float BeamWeapon::getTurretArc()
+float BeamWeapon::getTurretArc() const
 {
     return turret_arc;
 }
@@ -79,7 +63,7 @@ void BeamWeapon::setTurretDirection(float direction)
     this->turret_direction = direction;
 }
 
-float BeamWeapon::getTurretDirection()
+float BeamWeapon::getTurretDirection() const
 {
     return turret_direction;
 }
@@ -89,7 +73,7 @@ void BeamWeapon::setTurretRotationRate(float rotation_rate)
     this->turret_rotation_rate = rotation_rate;
 }
 
-float BeamWeapon::getTurretRotationRate()
+float BeamWeapon::getTurretRotationRate() const
 {
     return turret_rotation_rate;
 }
@@ -99,7 +83,7 @@ void BeamWeapon::setCycleTime(float cycle_time)
     this->cycle_time = cycle_time;
 }
 
-float BeamWeapon::getCycleTime()
+float BeamWeapon::getCycleTime() const
 {
     return cycle_time;
 }
@@ -109,12 +93,12 @@ void BeamWeapon::setDamage(float damage)
     this->damage = damage;
 }
 
-float BeamWeapon::getDamage()
+float BeamWeapon::getDamage() const
 {
     return damage;
 }
 
-float BeamWeapon::getEnergyPerFire()
+float BeamWeapon::getEnergyPerFire() const
 {
     return energy_per_beam_fire;
 }
@@ -124,7 +108,7 @@ void BeamWeapon::setEnergyPerFire(float energy)
     energy_per_beam_fire = energy;
 }
 
-float BeamWeapon::getHeatPerFire()
+float BeamWeapon::getHeatPerFire() const
 {
     return heat_per_beam_fire;
 }
@@ -139,7 +123,7 @@ void BeamWeapon::setPosition(sf::Vector3f position)
     this->position = position;
 }
 
-sf::Vector3f BeamWeapon::getPosition()
+sf::Vector3f BeamWeapon::getPosition() const
 {
     return position;
 }
@@ -149,12 +133,12 @@ void BeamWeapon::setBeamTexture(string beam_texture)
     this->beam_texture = beam_texture;
 }
 
-string BeamWeapon::getBeamTexture()
+const string& BeamWeapon::getBeamTexture() const
 {
     return beam_texture;
 }
 
-float BeamWeapon::getCooldown()
+float BeamWeapon::getCooldown() const
 {
     return cooldown;
 }

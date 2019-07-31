@@ -282,34 +282,34 @@ public:
 
     virtual std::unordered_map<string, string> getGMInfo();
 
-    bool isDocked(P<SpaceObject> target) { return docking_state == DS_Docked && docking_target == target; }
-    bool canStartDocking() { return current_warp <= 0.0 && (!has_jump_drive || jump_delay <= 0.0); }
-    int getWeaponStorage(EMissileWeapons weapon) { if (weapon == MW_None) return 0; return weapon_storage[weapon]; }
-    int getWeaponStorageMax(EMissileWeapons weapon) { if (weapon == MW_None) return 0; return weapon_storage_max[weapon]; }
+    bool isDocked(P<SpaceObject> target) const { return docking_state == DS_Docked && docking_target == target; }
+    bool canStartDocking() const { return current_warp <= 0.0 && (!has_jump_drive || jump_delay <= 0.0); }
+    int getWeaponStorage(EMissileWeapons weapon) const { if (weapon == MW_None) return 0; return weapon_storage[weapon]; }
+    int getWeaponStorageMax(EMissileWeapons weapon) const { if (weapon == MW_None) return 0; return weapon_storage_max[weapon]; }
     void setWeaponStorage(EMissileWeapons weapon, int amount) { if (weapon == MW_None) return; weapon_storage[weapon] = amount; }
     void setWeaponStorageMax(EMissileWeapons weapon, int amount) { if (weapon == MW_None) return; weapon_storage_max[weapon] = amount; weapon_storage[weapon] = std::min(int(weapon_storage[weapon]), amount); }
-    float getMaxEnergy() { return max_energy_level; }
+    float getMaxEnergy() const { return max_energy_level; }
     void setMaxEnergy(float amount) { if (amount > 0.0) { max_energy_level = amount;} }
-    float getEnergy() { return energy_level; }
+    float getEnergy() const { return energy_level; }
     void setEnergy(float amount) { if ( (amount > 0.0) && (amount <= max_energy_level)) { energy_level = amount; } }
-    float getSystemHealth(ESystem system) { if (system >= SYS_COUNT) return 0.0; if (system <= SYS_None) return 0.0; return systems[system].health; }
+    float getSystemHealth(ESystem system) const { if (system >= SYS_COUNT) return 0.0; if (system <= SYS_None) return 0.0; return systems[system].health; }
     void setSystemHealth(ESystem system, float health) { if (system >= SYS_COUNT) return; if (system <= SYS_None) return; systems[system].health = std::min(1.0f, std::max(-1.0f, health)); }
-    float getSystemHeat(ESystem system) { if (system >= SYS_COUNT) return 0.0; if (system <= SYS_None) return 0.0; return systems[system].heat_level; }
+    float getSystemHeat(ESystem system) const { if (system >= SYS_COUNT) return 0.0; if (system <= SYS_None) return 0.0; return systems[system].heat_level; }
     void setSystemHeat(ESystem system, float heat) { if (system >= SYS_COUNT) return; if (system <= SYS_None) return; systems[system].heat_level = std::min(1.0f, std::max(0.0f, heat)); }
-    float getSystemPower(ESystem system) { if (system >= SYS_COUNT) return 0.0; if (system <= SYS_None) return 0.0; return systems[system].power_level; }
+    float getSystemPower(ESystem system) const { if (system >= SYS_COUNT) return 0.0; if (system <= SYS_None) return 0.0; return systems[system].power_level; }
     void setSystemPower(ESystem system, float power) { if (system >= SYS_COUNT) return; if (system <= SYS_None) return; systems[system].power_level = std::min(3.0f, std::max(0.0f, power)); }
-    float getSystemCoolant(ESystem system) { if (system >= SYS_COUNT) return 0.0; if (system <= SYS_None) return 0.0; return systems[system].coolant_level; }
+    float getSystemCoolant(ESystem system) const { if (system >= SYS_COUNT) return 0.0; if (system <= SYS_None) return 0.0; return systems[system].coolant_level; }
     void setSystemCoolant(ESystem system, float coolant) { if (system >= SYS_COUNT) return; if (system <= SYS_None) return; systems[system].coolant_level = std::min(1.0f, std::max(0.0f, coolant)); }
-    float getImpulseMaxSpeed() { return impulse_max_speed; }
+    float getImpulseMaxSpeed() const { return impulse_max_speed; }
     void setImpulseMaxSpeed(float speed) { impulse_max_speed = speed; }
-    float getRotationMaxSpeed() { return turn_speed; }
+    float getRotationMaxSpeed() const { return turn_speed; }
     void setRotationMaxSpeed(float speed) { turn_speed = speed; }
     void setCombatManeuver(float boost, float strafe) { combat_maneuver_boost_speed = boost; combat_maneuver_strafe_speed = strafe; }
 
-    bool hasJumpDrive() { return has_jump_drive; }
+    bool hasJumpDrive() const { return has_jump_drive; }
     void setJumpDrive(bool has_jump) { has_jump_drive = has_jump; }
     void setJumpDriveRange(float min, float max) { jump_drive_min_distance = min; jump_drive_max_distance = max; }
-    bool hasWarpDrive() { return has_warp_drive; }
+    bool hasWarpDrive() const { return has_warp_drive; }
     void setWarpDrive(bool has_warp)
     {
         has_warp_drive = has_warp;
@@ -323,37 +323,37 @@ public:
         }
     }
 
-    float getBeamWeaponArc(int index) { if (index < 0 || index >= max_beam_weapons) return 0.0; return beam_weapons[index].getArc(); }
-    float getBeamWeaponDirection(int index) { if (index < 0 || index >= max_beam_weapons) return 0.0; return beam_weapons[index].getDirection(); }
-    float getBeamWeaponRange(int index) { if (index < 0 || index >= max_beam_weapons) return 0.0; return beam_weapons[index].getRange(); }
+    float getBeamWeaponArc(int index) const { if (index < 0 || index >= max_beam_weapons) return 0.0; return beam_weapons[index].getArc(); }
+    float getBeamWeaponDirection(int index) const { if (index < 0 || index >= max_beam_weapons) return 0.0; return beam_weapons[index].getDirection(); }
+    float getBeamWeaponRange(int index) const { if (index < 0 || index >= max_beam_weapons) return 0.0; return beam_weapons[index].getRange(); }
 
-    float getBeamWeaponTurretArc(int index) 
+    float getBeamWeaponTurretArc(int index) const 
     {
         if (index < 0 || index >= max_beam_weapons)
             return 0.0;
         return beam_weapons[index].getTurretArc();
     }
 
-    float getBeamWeaponTurretDirection(int index)
+    float getBeamWeaponTurretDirection(int index) const
     {
         if (index < 0 || index >= max_beam_weapons)
             return 0.0;
         return beam_weapons[index].getTurretDirection();
     }
 
-    float getBeamWeaponTurretRotationRate(int index)
+    float getBeamWeaponTurretRotationRate(int index) const
     {
         if (index < 0 || index >= max_beam_weapons)
             return 0.0;
         return beam_weapons[index].getTurretRotationRate();
     }
 
-    float getBeamWeaponCycleTime(int index) { if (index < 0 || index >= max_beam_weapons) return 0.0; return beam_weapons[index].getCycleTime(); }
-    float getBeamWeaponDamage(int index) { if (index < 0 || index >= max_beam_weapons) return 0.0; return beam_weapons[index].getDamage(); }
-    float getBeamWeaponEnergyPerFire(int index) { if (index < 0 || index >= max_beam_weapons) return 0.0; return beam_weapons[index].getEnergyPerFire(); }
-    float getBeamWeaponHeatPerFire(int index) { if (index < 0 || index >= max_beam_weapons) return 0.0; return beam_weapons[index].getHeatPerFire(); }
+    float getBeamWeaponCycleTime(int index) const { if (index < 0 || index >= max_beam_weapons) return 0.0; return beam_weapons[index].getCycleTime(); }
+    float getBeamWeaponDamage(int index) const { if (index < 0 || index >= max_beam_weapons) return 0.0; return beam_weapons[index].getDamage(); }
+    float getBeamWeaponEnergyPerFire(int index) const { if (index < 0 || index >= max_beam_weapons) return 0.0; return beam_weapons[index].getEnergyPerFire(); }
+    float getBeamWeaponHeatPerFire(int index) const { if (index < 0 || index >= max_beam_weapons) return 0.0; return beam_weapons[index].getHeatPerFire(); }
 
-    int getShieldsFrequency(void){ return shield_frequency; }
+    int getShieldsFrequency(void) const { return shield_frequency; }
     void setShieldsFrequency(float freq) { if ((freq > SpaceShip::max_frequency) || (freq < 0)) return; shield_frequency = freq;}
 
     void setBeamWeapon(int index, float arc, float direction, float range, float cycle_time, float damage)
@@ -387,8 +387,8 @@ public:
     void setBeamWeaponHeatPerFire(int index, float heat) { if (index < 0 || index >= max_beam_weapons) return; return beam_weapons[index].setHeatPerFire(heat); }
 
     void setWeaponTubeCount(int amount);
-    int getWeaponTubeCount();
-    EMissileWeapons getWeaponTubeLoadType(int index);
+    int getWeaponTubeCount() const;
+    EMissileWeapons getWeaponTubeLoadType(int index) const;
     void weaponTubeAllowMissle(int index, EMissileWeapons type);
     void weaponTubeDisallowMissle(int index, EMissileWeapons type);
     void setWeaponTubeExclusiveFor(int index, EMissileWeapons type);

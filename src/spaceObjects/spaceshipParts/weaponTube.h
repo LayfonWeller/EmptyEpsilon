@@ -23,11 +23,11 @@ public:
     void setParent(SpaceShip* parent);
     void setIndex(int index);
 
-    float getLoadTimeConfig();
+    float getLoadTimeConfig() const;
     void setLoadTimeConfig(float load_time);
 
     void setDirection(float direction);
-    float getDirection();
+    float getDirection() const;
     
     /*!
      * Load a missile tube.
@@ -41,8 +41,8 @@ public:
      */
     void fire(float target_angle);
 
-    bool canLoad(EMissileWeapons type);
-    bool canOnlyLoad(EMissileWeapons type);
+    bool canLoad(EMissileWeapons type) const;
+    bool canOnlyLoad(EMissileWeapons type) const;
     void allowLoadOf(EMissileWeapons type);
     void disallowLoadOf(EMissileWeapons type);
     
@@ -50,18 +50,18 @@ public:
     
     void update(float delta);
 
-    bool isEmpty();
-    bool isLoaded();
-    bool isLoading();
-    bool isUnloading();
-    bool isFiring();
+    bool isEmpty() const;
+    bool isLoaded() const;
+    bool isLoading() const;
+    bool isUnloading() const;
+    bool isFiring() const;
     
-    float getLoadProgress();
-    float getUnloadProgress();
+    float getLoadProgress() const ;
+    float getUnloadProgress() const;
 
-    EMissileWeapons getLoadType();
+    EMissileWeapons getLoadType() const;
     
-    string getTubeName(); //Get the tube name based on the direction of the tube.
+    string getTubeName() const; //Get the tube name based on the direction of the tube.
 
     //Calculate a possible firing solution towards the target for this missile tube.
     //Will return the angle that the missile needs to turn to to possibly hit this target.

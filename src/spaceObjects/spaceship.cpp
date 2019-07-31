@@ -1043,12 +1043,12 @@ void SpaceShip::setWeaponTubeCount(int amount)
     }
 }
 
-int SpaceShip::getWeaponTubeCount()
+int SpaceShip::getWeaponTubeCount() const
 {
     return weapon_tube_count;
 }
 
-EMissileWeapons SpaceShip::getWeaponTubeLoadType(int index)
+EMissileWeapons SpaceShip::getWeaponTubeLoadType(int index) const
 {
     if (index < 0 || index >= weapon_tube_count)
         return MW_None;

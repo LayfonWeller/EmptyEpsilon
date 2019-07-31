@@ -33,7 +33,7 @@ void WeaponTube::setParent(SpaceShip* parent)
     parent->registerMemberReplication(&delay, 0.5);
 }
 
-float WeaponTube::getLoadTimeConfig()
+float WeaponTube::getLoadTimeConfig() const
 {
     return load_time;
 }
@@ -53,7 +53,7 @@ void WeaponTube::setDirection(float direction)
     this->direction = direction;
 }
 
-float WeaponTube::getDirection()
+float WeaponTube::getDirection() const
 {
     return direction;
 }
@@ -165,7 +165,7 @@ void WeaponTube::spawnProjectile(float target_angle)
     }
 }
 
-bool WeaponTube::canLoad(EMissileWeapons type)
+bool WeaponTube::canLoad(EMissileWeapons type) const
 {
     if (type <= MW_None || type >= MW_Count)
         return false;
@@ -174,7 +174,7 @@ bool WeaponTube::canLoad(EMissileWeapons type)
     return false;
 }
 
-bool WeaponTube::canOnlyLoad(EMissileWeapons type)
+bool WeaponTube::canOnlyLoad(EMissileWeapons type) const
 {
     if (type_allowed_mask == (1U << type))
         return true;
@@ -241,47 +241,47 @@ void WeaponTube::update(float delta)
     }
 }
 
-bool WeaponTube::isEmpty()
+bool WeaponTube::isEmpty() const
 {
     return state == WTS_Empty;
 }
 
-bool WeaponTube::isLoaded()
+bool WeaponTube::isLoaded() const
 {
     return state == WTS_Loaded;
 }
 
-bool WeaponTube::isLoading()
+bool WeaponTube::isLoading() const
 {
     return state == WTS_Loading;
 }
 
-bool WeaponTube::isUnloading()
+bool WeaponTube::isUnloading() const
 {
     return state == WTS_Unloading;
 }
 
-bool WeaponTube::isFiring()
+bool WeaponTube::isFiring() const
 {
     return state == WTS_Firing;
 }
 
-float WeaponTube::getLoadProgress()
+float WeaponTube::getLoadProgress() const
 {
     return 1.0 - delay / load_time;
 }
 
-float WeaponTube::getUnloadProgress()
+float WeaponTube::getUnloadProgress() const
 {
     return delay / load_time;
 }
 
-EMissileWeapons WeaponTube::getLoadType()
+EMissileWeapons WeaponTube::getLoadType() const
 {
     return type_loaded;
 }
 
-string WeaponTube::getTubeName()
+string WeaponTube::getTubeName() const
 {
     if (std::abs(sf::angleDifference(0.0f, direction)) <= 45)
         return "Front";

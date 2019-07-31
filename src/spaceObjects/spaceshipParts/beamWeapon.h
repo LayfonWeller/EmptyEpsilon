@@ -9,68 +9,68 @@ class SpaceShip;
 class BeamWeapon : public sf::NonCopyable
 {
 public:
-    BeamWeapon();
+    BeamWeapon() = default;
 
     void fire(P<SpaceObject> target, ESystem system_target);
 
     void setParent(SpaceShip* parent);
 
     void setArc(float arc);
-    float getArc();
+    float getArc() const;;
 
     void setDirection(float direction);
-    float getDirection();
+    float getDirection() const;;
 
     void setRange(float range);
-    float getRange();
+    float getRange() const;;
 
     void setTurretArc(float arc);
-    float getTurretArc();
+    float getTurretArc() const;;
 
     void setTurretDirection(float direction);
-    float getTurretDirection();
+    float getTurretDirection() const;;
 
     void setTurretRotationRate(float rotation_rate);
-    float getTurretRotationRate();
+    float getTurretRotationRate() const;;
 
     void setCycleTime(float cycle_time);
-    float getCycleTime();
+    float getCycleTime() const;;
     
     void setDamage(float damage);
-    float getDamage();
+    float getDamage() const;
 
-    float getEnergyPerFire();
+    float getEnergyPerFire() const;
     void setEnergyPerFire(float energy);
 
-    float getHeatPerFire();
+    float getHeatPerFire() const;
     void setHeatPerFire(float heat);
 
     void setPosition(sf::Vector3f position);
-    sf::Vector3f getPosition();
+    sf::Vector3f getPosition() const;;
     
     void setBeamTexture(string beam_texture);
-    string getBeamTexture();
+    const string& getBeamTexture() const;
 
-    float getCooldown();
+    float getCooldown() const;;
     
     void update(float delta);
 protected:
     sf::Vector3f position;//Visual position on the 3D model where this beam is fired from.
-    SpaceShip* parent; //The ship that this beam weapon is attached to.
+    SpaceShip* parent = nullptr; //The ship that this beam weapon is attached to.
 
     //Beam configuration
-    float arc;
-    float direction;
-    float range;
-    float turret_arc;
-    float turret_direction;
-    float turret_rotation_rate;
-    float cycle_time;
-    float damage;//Server side only
-    float energy_per_beam_fire;//Server side only
-    float heat_per_beam_fire;//Server side only
+    float arc = 0.0f;
+    float direction = 0.0f;
+    float range = 0.0f;
+    float turret_arc = 0.0f;
+    float turret_direction = 0.0f;
+    float turret_rotation_rate = 0.0f;
+    float cycle_time = 6.0f;
+    float damage = 1.0f;//Server side only
+    float energy_per_beam_fire = 3.0f;//Server side only
+    float heat_per_beam_fire = 0.02f;//Server side only
     //Beam runtime state
-    float cooldown;
+    float cooldown = 0.0f;
     string beam_texture;
 };
 
