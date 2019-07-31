@@ -1,22 +1,6 @@
 #include "beamTemplate.h"
 
-BeamTemplate::BeamTemplate()
-{
-    arc = 0;
-    direction = 0;
-    range = 0;
-    turret_arc = 0;
-    turret_direction = 0;
-    turret_rotation_rate = 0;
-    cycle_time = 0;
-    damage = 0;
-    beam_texture = "beam_orange.png";
-
-    energy_per_beam_fire = 3.0;
-    heat_per_beam_fire = 0.02;
-}
-
-string BeamTemplate::getBeamTexture()
+const string& BeamTemplate::getBeamTexture() const
 {
     return beam_texture;
 }
@@ -27,7 +11,7 @@ void BeamTemplate::setBeamTexture(string texture)
     beam_texture = texture;
 }
 
-float BeamTemplate::getDirection()
+float BeamTemplate::getDirection() const
 {
     return direction;
 }
@@ -42,7 +26,7 @@ void BeamTemplate::setDirection(float direction)
     this->direction = direction;
 }
 
-float BeamTemplate::getArc()
+float BeamTemplate::getArc() const
 {
     return arc;
 }
@@ -56,7 +40,7 @@ void BeamTemplate::setArc(float arc)
     this->arc = arc;
 }
 
-float BeamTemplate::getRange()
+float BeamTemplate::getRange() const
 {
     return range;
 }
@@ -69,7 +53,7 @@ void BeamTemplate::setRange(float range)
         this->range = range;
 }
 
-float BeamTemplate::getTurretDirection()
+float BeamTemplate::getTurretDirection() const
 {
     return turret_direction;
 }
@@ -84,7 +68,7 @@ void BeamTemplate::setTurretDirection(float direction)
     this->turret_direction = direction;
 }
 
-float BeamTemplate::getTurretArc()
+float BeamTemplate::getTurretArc() const
 {
     return turret_arc;
 }
@@ -98,7 +82,7 @@ void BeamTemplate::setTurretArc(float arc)
     this->turret_arc = arc;
 }
 
-float BeamTemplate::getTurretRotationRate()
+float BeamTemplate::getTurretRotationRate() const
 {
     return turret_rotation_rate;
 }
@@ -115,7 +99,7 @@ void BeamTemplate::setTurretRotationRate(float rotation_rate)
         this->turret_rotation_rate = rotation_rate;
 }
 
-float BeamTemplate::getCycleTime()
+float BeamTemplate::getCycleTime() const
 {
     return cycle_time;
 }
@@ -128,7 +112,7 @@ void BeamTemplate::setCycleTime(float cycle_time)
         this->cycle_time = cycle_time;
 }
 
-float BeamTemplate::getDamage()
+float BeamTemplate::getDamage() const
 {
     return damage;
 }
@@ -141,7 +125,7 @@ void BeamTemplate::setDamage(float damage)
         this->damage = damage;
 }
 
-float BeamTemplate::getEnergyPerFire()
+float BeamTemplate::getEnergyPerFire() const
 {
     return energy_per_beam_fire;
 }
@@ -151,7 +135,7 @@ void BeamTemplate::setEnergyPerFire(float energy)
     energy_per_beam_fire = energy;
 }
 
-float BeamTemplate::getHeatPerFire()
+float BeamTemplate::getHeatPerFire() const
 {
     return heat_per_beam_fire;
 }
