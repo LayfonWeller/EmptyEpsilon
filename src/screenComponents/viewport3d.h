@@ -5,9 +5,9 @@
 
 class GuiViewport3D : public GuiElement
 {
-    bool show_callsigns;
-    bool show_headings;
-    bool show_spacedust;
+    bool show_callsigns = false;
+    bool show_headings = false;
+    bool show_spacedust = false;
 
     double projection_matrix[16];
     double model_matrix[16];

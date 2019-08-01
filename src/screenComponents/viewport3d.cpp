@@ -21,11 +21,8 @@ static void _glPerspective(double fovY, double aspect, double zNear, double zFar
 #endif//FEATURE_3D_RENDERING
 
 GuiViewport3D::GuiViewport3D(GuiContainer* owner, string id)
-: GuiElement(owner, id)
+: GuiElement(owner, std::move(id))
 {
-    show_callsigns = false;
-    show_headings = false;
-    show_spacedust = false;
 }
 
 void GuiViewport3D::onDraw(sf::RenderTarget& window)

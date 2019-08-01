@@ -100,7 +100,7 @@ public:
     // state
     int scanning_depth = 0;
     // Time in seconds it takes to recalibrate shields
-    float shield_calibration_delay;
+    float shield_calibration_delay = 0.0f;
     // Ship automation features, mostly for single-person ships like fighters
     bool auto_repair_enabled = false;
     bool auto_coolant_enabled = false;
@@ -130,8 +130,9 @@ public:
     std::vector<sf::Vector2f> waypoints;
     
     // Scan probe capacity
-    int max_scan_probes = 8;
-    int scan_probe_stock = 8;
+    static constexpr int default_scan_probes = 8;
+    int max_scan_probes = default_scan_probes;
+    int scan_probe_stock = default_scan_probes;
     float scan_probe_recharge = 0;
 
     // Main screen content

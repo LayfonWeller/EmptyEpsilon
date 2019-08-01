@@ -75,41 +75,17 @@ ShipTemplate::ShipTemplate()
 {
     if (game_server) { LOG(ERROR) << "ShipTemplate objects can not be created during a scenario."; destroy(); return; }
     
-    type = Ship;
-    class_name = "No class";
-    class_name = "No sub-class";
-    shares_energy_with_docked = true;
-    repair_docked = false;
-    energy_storage_amount = 1000;
-    repair_crew_count = 3;
-    weapon_tube_count = 0;
     for(int n=0; n<max_weapon_tubes; n++)
     {
         weapon_tube[n].load_time = 8.0;
         weapon_tube[n].type_allowed_mask = (1 << MW_Count) - 1;
         weapon_tube[n].direction = 0;
     }
-    hull = 70;
-    shield_count = 0;
     for(int n=0; n<max_shield_count; n++)
         shield_level[n] = 0.0;
-    impulse_speed = 500.0;
-    impulse_acceleration = 20.0;
-    turn_speed = 10.0;
-    combat_maneuver_boost_speed = 0.0f;
-    combat_maneuver_strafe_speed = 0.0f;
-    warp_speed = 0.0;
-    has_jump_drive = false;
-    jump_drive_min_distance = 5000.0;
-    jump_drive_max_distance = 50000.0;
-    has_cloaking = false;
-    for(int n=0; n<MW_Count; n++)
-        weapon_storage[n] = 0;
-    radar_trace = "RadarArrow.png";
 }
 
 void ShipTemplate::setBeamTexture(int index, string texture)
-
 {
     if (index >= 0 && index < max_beam_weapons)
     {
@@ -276,7 +252,7 @@ P<ShipTemplate> ShipTemplate::getTemplate(string name)
 std::vector<string> ShipTemplate::getAllTemplateNames()
 {
     std::vector<string> ret;
-    for(std::unordered_map<string, P<ShipTemplate> >::iterator i = templateMap.begin(); i != templateMap.end(); i++)
+    for(std::unordered_map<string, P<ShipTemplate> >::iterator i = templateMap.begin(); i != templateMap.end(); ++i)
         ret.push_back(i->first);
     return ret;
 }
@@ -284,7 +260,7 @@ std::vector<string> ShipTemplate::getAllTemplateNames()
 std::vector<string> ShipTemplate::getTemplateNameList(TemplateType type)
 {
     std::vector<string> ret;
-    for(std::unordered_map<string, P<ShipTemplate> >::iterator i = templateMap.begin(); i != templateMap.end(); i++)
+    for(std::unordered_map<string, P<ShipTemplate> >::iterator i = templateMap.begin(); i != templateMap.end(); ++i)
         if (i->second->getType() == type)
             ret.push_back(i->first);
     return ret;

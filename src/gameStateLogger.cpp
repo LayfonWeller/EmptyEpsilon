@@ -113,13 +113,6 @@ private:
     bool first, array_first;
 };
 
-GameStateLogger::GameStateLogger()
-{
-    log_file = nullptr;
-    logging_interval = 1.0;
-    logging_delay = 0.0;
-}
-
 GameStateLogger::~GameStateLogger()
 {
     stop();
@@ -314,9 +307,7 @@ void GameStateLogger::writeShipEntry(JSONGenerator& json, P<SpaceShip> ship)
                 missiles.write(getMissileWeaponName(EMissileWeapons(n)).c_str(), ship->weapon_storage[n]);
             }
         }
-    }
-    if (ship->weapon_tube_count > 0)
-    {
+    
         json.startArray("tubes");
         for(int n=0; n<ship->weapon_tube_count; n++)
         {

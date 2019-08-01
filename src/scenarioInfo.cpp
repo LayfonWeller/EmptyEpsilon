@@ -2,10 +2,8 @@
 #include "resources.h"
 
 ScenarioInfo::ScenarioInfo(string filename)
+: filename(filename), name(filename.substr(9, -4))
 {
-    this->filename = filename;
-    name = filename.substr(9, -4);
-
     P<ResourceStream> stream = getResourceStream(filename);
     if (!stream) return;
 

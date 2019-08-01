@@ -33,21 +33,21 @@ public:
 
 private:
     //Config:
-    float planet_size;
-    float cloud_size;
+    float planet_size = 5000.0f;
+    float cloud_size = 5200.0f;
     float atmosphere_size;
-    string planet_texture;
-    string cloud_texture;
-    string atmosphere_texture;
-    sf::Color atmosphere_color;
-    float distance_from_movement_plane;
+    string planet_texture = "";
+    string cloud_texture = "";
+    string atmosphere_texture = "";
+    sf::Color atmosphere_color = sf::Color(0, 0, 0);
+    float distance_from_movement_plane = 0.0f;
     
-    float axial_rotation_time;
-    int32_t orbit_target_id;
-    float orbit_time;
-    float orbit_distance;
+    float axial_rotation_time = 0.0f;
+    int32_t orbit_target_id = -1;
+    float orbit_time = 0.0f;
+    float orbit_distance = 0.0f;
     
-    float collision_size;
+    float collision_size = -2.0f;
 
     void updateCollisionSize();
 };

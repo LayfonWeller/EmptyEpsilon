@@ -275,9 +275,8 @@ std::vector<std::pair<string, string>> HotkeyConfig::listHotkeysByCategory(strin
 }
 
 HotkeyConfigItem::HotkeyConfigItem(string key, std::tuple<string, string> value)
+: key(std::move(key)), value(std::move(value))
 {
-    this->key = key;
-    this->value = value;
     hotkey.code = sf::Keyboard::KeyCount;
     hotkey.alt = false;
     hotkey.control = false;

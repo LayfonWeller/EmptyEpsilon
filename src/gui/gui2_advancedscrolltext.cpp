@@ -2,7 +2,7 @@
 #include "gui2_advancedscrolltext.h"
 
 GuiAdvancedScrollText::GuiAdvancedScrollText(GuiContainer* owner, string id)
-: GuiElement(owner, id), text_size(30)
+: GuiElement(owner, id)
 {
     scrollbar = new GuiScrollbar(this, id + "_SCROLL", 0, 1, 0, nullptr);
     scrollbar->setPosition(0, 0, ATopRight)->setSize(50, GuiElement::GuiSizeMax);

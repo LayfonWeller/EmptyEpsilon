@@ -3,18 +3,6 @@
 #include "spaceObjects/beamEffect.h"
 #include "spaceObjects/missileWeapon.h"
 
-ThreatLevelEstimate::ThreatLevelEstimate()
-{
-    smoothed_threat_level = 0.0;
-    threat_high = false;
-    threat_high_func = nullptr;
-    threat_low_func = nullptr;
-}
-
-ThreatLevelEstimate::~ThreatLevelEstimate()
-{
-}
-
 void ThreatLevelEstimate::update(float delta)
 {
     if (!gameGlobalInfo)

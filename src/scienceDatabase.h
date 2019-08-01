@@ -30,7 +30,7 @@ public:
 
     ScienceDatabase();
     ScienceDatabase(P<ScienceDatabase> parent, string name);
-    virtual ~ScienceDatabase();
+    virtual ~ScienceDatabase() = default;
 
     void addKeyValue(string key, string value);
     void setLongDescription(string text);

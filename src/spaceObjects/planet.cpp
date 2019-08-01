@@ -108,20 +108,6 @@ REGISTER_MULTIPLAYER_CLASS(Planet, "Planet");
 Planet::Planet()
 : SpaceObject(5000, "Planet")
 {
-    planet_size = 5000;
-    cloud_size = 5200;
-    planet_texture = "";
-    cloud_texture = "";
-    atmosphere_texture = "";
-    atmosphere_color = sf::Color(0, 0, 0);
-    distance_from_movement_plane = 0;
-    axial_rotation_time = 0.0;
-    orbit_target_id = -1;
-    orbit_time = 0.0f;
-    orbit_distance = 0.0f;
-
-    collision_size = -2.0f;
-
     setRadarSignatureInfo(0.5, 0, 0);
     
     registerMemberReplication(&planet_size);

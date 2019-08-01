@@ -68,9 +68,9 @@ private:
     static std::unordered_map<string, P<ShipTemplate> > templateMap;
     string name;
     string description;
-    string class_name;
-    string sub_class_name;
-    TemplateType type;
+    string class_name = "No class";
+    string sub_class_name = "No sub-class";
+    TemplateType type = Ship;
 public:
     string getName();
     string getDescription();
@@ -85,28 +85,31 @@ public:
      * List of ship classes that can dock with this ship. (only used for ship2ship docking)
      */
     std::unordered_set<string> can_be_docked_by_class;
-    bool shares_energy_with_docked;
-    bool repair_docked;
+    bool shares_energy_with_docked = true;
+    bool repair_docked = false;
     
-    float energy_storage_amount;
-    int repair_crew_count;
+    float energy_storage_amount  = 1000;
+    int repair_crew_count = 3;
     string default_ai_name;
     BeamTemplate beams[max_beam_weapons];
-    int weapon_tube_count;
+    int weapon_tube_count = 0;
     TubeTemplate weapon_tube[max_weapon_tubes];
-    float hull;
-    int shield_count;
+    float hull = 70;
+    int shield_count = 0;
     float shield_level[max_shield_count];
-    float impulse_speed, turn_speed, warp_speed;
-    float impulse_acceleration;
-    float combat_maneuver_boost_speed;
-    float combat_maneuver_strafe_speed;
-    bool has_jump_drive, has_cloaking;
-    float jump_drive_min_distance;
-    float jump_drive_max_distance;
-    int weapon_storage[MW_Count];
+    float impulse_speed = 500.0f;
+    float turn_speed = 10.0f;
+    float warp_speed = 0.0f;
+    float impulse_acceleration = 20.0f;
+    float combat_maneuver_boost_speed = 0.0f;
+    float combat_maneuver_strafe_speed = 0.0f;
+    bool has_jump_drive = false;
+    bool has_cloaking = false;
+    float jump_drive_min_distance = 5000.0;
+    float jump_drive_max_distance = 50000.0;
+    int weapon_storage[MW_Count] = {0};
 
-    string radar_trace;
+    string radar_trace = "RadarArrow.png";
 
     std::vector<ShipRoomTemplate> rooms;
     std::vector<ShipDoorTemplate> doors;

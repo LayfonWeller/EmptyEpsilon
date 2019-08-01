@@ -72,7 +72,7 @@ public:
     void onMouseDrag(sf::Vector2f position);
     void onMouseUp(sf::Vector2f position);
 
-    virtual void onKey(sf::Event::KeyEvent key, int unicode);
+    virtual void onKey(sf::Event::KeyEvent key, int unicode) override;
     
     PVector<SpaceObject> getSelection();
     

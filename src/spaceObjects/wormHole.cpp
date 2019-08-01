@@ -22,9 +22,9 @@ REGISTER_SCRIPT_SUBCLASS(WormHole, SpaceObject)
 
 REGISTER_MULTIPLAYER_CLASS(WormHole, "WormHole");
 WormHole::WormHole()
-: SpaceObject(DEFAULT_COLLISION_RADIUS, "WormHole") 
+: SpaceObject(DEFAULT_COLLISION_RADIUS, "WormHole")
+, pathPlanner(PathPlannerManager::getInstance())
 {
-    pathPlanner = PathPlannerManager::getInstance();
     pathPlanner->addAvoidObject(this, (DEFAULT_COLLISION_RADIUS * AVOIDANCE_MULTIPLIER) );
     
     setRadarSignatureInfo(0.9, 0.0, 0.0);

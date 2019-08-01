@@ -19,7 +19,7 @@ class JSONGenerator;
 class GameStateLogger : public Updatable
 {
 public:
-    GameStateLogger();
+    GameStateLogger() = default;
     virtual ~GameStateLogger();
     
     void start();
@@ -28,9 +28,9 @@ public:
     virtual void update(float delta) override;
 
 private:
-    FILE* log_file;
-    float logging_interval;
-    float logging_delay;
+    FILE* log_file = nullptr;
+    float logging_interval = 1.0f;
+    float logging_delay = 0.0f;
     float start_time;
     std::map<int, sf::Vector2f> static_objects;
 

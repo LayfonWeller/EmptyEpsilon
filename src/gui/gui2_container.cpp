@@ -69,7 +69,7 @@ void GuiContainer::drawDebugElements(sf::FloatRect parent_rect, sf::RenderTarget
 
 GuiElement* GuiContainer::getClickElement(sf::Vector2f mouse_position)
 {
-    for(std::list<GuiElement*>::reverse_iterator it = elements.rbegin(); it != elements.rend(); it++)
+    for(std::list<GuiElement*>::reverse_iterator it = elements.rbegin(); it != elements.rend(); ++it)
     {
         GuiElement* element = *it;
         

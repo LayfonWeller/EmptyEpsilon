@@ -195,12 +195,7 @@ PlayerSpaceship::PlayerSpaceship()
 : SpaceShip("PlayerSpaceship", 5000)
 {
     // Initialize ship settings
-  
-    shield_calibration_delay = 0.0;
-
     scan_probe_stock = max_scan_probes;
-
-    control_code = "";
 
     setFactionId(1);
 

@@ -39,7 +39,7 @@ void PathPlannerManager::update(float delta)
     {
         if (i->source)
         {
-            i++;
+            ++i;
         }else{
             i = big_objects.erase(i);
         }
@@ -71,8 +71,8 @@ void PathPlannerManager::update(float delta)
 }
 
 PathPlanner::PathPlanner()
+: manager(PathPlannerManager::getInstance())
 {
-    manager = PathPlannerManager::getInstance();
 }
 
 void PathPlanner::plan(sf::Vector2f start, sf::Vector2f end)
@@ -181,7 +181,7 @@ bool PathPlanner::checkToAvoid(sf::Vector2f start, sf::Vector2f end, sf::Vector2
                     }
                 }
             }
-            i++;
+            ++i;
         }else{
             i = manager->big_objects.erase(i);
         }
@@ -245,7 +245,7 @@ bool PathPlanner::checkToAvoid(sf::Vector2f start, sf::Vector2f end, sf::Vector2
                             }
                         }
                     }
-                    i++;
+                    ++i;
                 }else{
                     i = manager->small_objects[hash].erase(i);
                 }

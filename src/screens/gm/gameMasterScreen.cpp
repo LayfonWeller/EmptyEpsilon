@@ -258,7 +258,7 @@ void GameMasterScreen::update(float delta)
     for(P<SpaceObject> obj : targets.getTargets())
     {
         std::unordered_map<string, string> info = obj->getGMInfo();
-        for(std::unordered_map<string, string>::iterator i = info.begin(); i != info.end(); i++)
+        for(std::unordered_map<string, string>::iterator i = info.begin(); i != info.end(); ++i)
         {
             if (selection_info.find(i->first) == selection_info.end())
             {
@@ -277,7 +277,7 @@ void GameMasterScreen::update(float delta)
     }
     
     unsigned int cnt = 0;
-    for(std::unordered_map<string, string>::iterator i = selection_info.begin(); i != selection_info.end(); i++)
+    for(std::unordered_map<string, string>::iterator i = selection_info.begin(); i != selection_info.end(); ++i)
     {
         if (cnt == info_items.size())
         {

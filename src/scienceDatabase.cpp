@@ -24,12 +24,7 @@ ScienceDatabase::ScienceDatabase()
 }
 
 ScienceDatabase::ScienceDatabase(P<ScienceDatabase> parent, string name)
-{
-    this->parent = parent;
-    this->name = name;
-}
-
-ScienceDatabase::~ScienceDatabase()
+: parent (parent), name(name)
 {
 }
 

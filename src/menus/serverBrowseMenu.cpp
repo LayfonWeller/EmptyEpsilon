@@ -9,8 +9,8 @@
 #include "gui/gui2_listbox.h"
 
 ServerBrowserMenu::ServerBrowserMenu(SearchSource source)
+: scanner (new ServerScanner(VERSION_NUMBER))
 {
-    scanner = new ServerScanner(VERSION_NUMBER);
     if (source == Local)
         scanner->scanLocalNetwork();
     else
