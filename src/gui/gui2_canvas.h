@@ -18,8 +18,8 @@ public:
     GuiCanvas();
     virtual ~GuiCanvas();
 
-    virtual void render(sf::RenderTarget& window);
-    virtual void handleKeyPress(sf::Event::KeyEvent key, int unicode);
+    virtual void render(sf::RenderTarget& window) override;
+    virtual void handleKeyPress(sf::Event::KeyEvent key, int unicode) override;
     
     virtual void onClick(sf::Vector2f mouse_position);
     virtual void onHotkey(const HotkeyResult& key);

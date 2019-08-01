@@ -66,7 +66,7 @@ public:
 
     GameMasterScreen();
     
-    virtual void update(float delta);
+    virtual void update(float delta) override;
     
     void onMouseDown(sf::Vector2f position);
     void onMouseDrag(sf::Vector2f position);

@@ -19,7 +19,7 @@ public:
 #if FEATURE_3D_RENDERING
     virtual void draw3DTransparent() override;
 #endif
-    virtual void update(float delta);
+    virtual void update(float delta) override;
 
     void setSource(P<SpaceObject> source, sf::Vector3f offset);
     void setTarget(P<SpaceObject> target, sf::Vector2f hitLocation);

@@ -34,10 +34,10 @@ public:
 
     RepairCrew();
 
-    virtual void onReceiveClientCommand(int32_t client_id, sf::Packet& packet);
+    virtual void onReceiveClientCommand(int32_t client_id, sf::Packet& packet) override;
     void commandSetTargetPosition(sf::Vector2i position);
 
-    virtual void update(float delta);
+    virtual void update(float delta) override;
 private:
     bool isTargetPositionTaken(sf::Vector2i position);
 };

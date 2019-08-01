@@ -24,7 +24,7 @@ private:
 public:
     MouseCalibrator(string filename);
 
-    virtual void update(float delta);
+    virtual void update(float delta) override;
 
     /*!
      * \brief Calculate the transformation matrix

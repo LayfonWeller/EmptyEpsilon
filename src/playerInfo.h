@@ -46,7 +46,7 @@ public:
     void commandSetCrewPosition(ECrewPosition position, bool active);
     void commandSetShipId(int32_t id);
     void commandSetMainScreenControl(bool control);
-    virtual void onReceiveClientCommand(int32_t client_id, sf::Packet& packet);
+    virtual void onReceiveClientCommand(int32_t client_id, sf::Packet& packet) override;
 
     void spawnUI();
 };

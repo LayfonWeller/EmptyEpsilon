@@ -12,7 +12,7 @@ private:
 public:
     Artifact();
 
-    virtual void update(float delta);
+    virtual void update(float delta) override;
 
     virtual void drawOnRadar(sf::RenderTarget& window, sf::Vector2f position, float scale, bool long_range) override;
 

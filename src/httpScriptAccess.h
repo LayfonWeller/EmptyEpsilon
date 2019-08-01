@@ -6,7 +6,7 @@
 class HttpScriptHandler : public HttpRequestHandler
 {
 public:
-    virtual bool handleRequest(HttpRequest& request, HttpServerConnection* connection);
+    virtual bool handleRequest(HttpRequest& request, HttpServerConnection* connection) override;
 };
 
 #endif//HTTP_SCRIPT_ACCESS_H

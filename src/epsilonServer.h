@@ -9,8 +9,8 @@ public:
     EpsilonServer();
     virtual ~EpsilonServer();
 
-    virtual void onNewClient(int32_t client_id);
-    virtual void onDisconnectClient(int32_t client_id);
+    virtual void onNewClient(int32_t client_id) override;
+    virtual void onDisconnectClient(int32_t client_id) override;
 };
 
 void disconnectFromServer();

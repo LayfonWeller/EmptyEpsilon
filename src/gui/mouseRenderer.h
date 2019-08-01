@@ -10,7 +10,7 @@ public:
 
     MouseRenderer();
 
-    virtual void render(sf::RenderTarget& window);
+    virtual void render(sf::RenderTarget& window) override;
 };
 
 #endif//MOUSE_RENDERER_H

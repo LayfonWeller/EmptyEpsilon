@@ -14,7 +14,7 @@ public:
 
     ScanProbe();
 
-    virtual void update(float delta);
+    virtual void update(float delta) override;
 
     virtual bool canBeTargetedBy(P<SpaceObject> other) override;
     

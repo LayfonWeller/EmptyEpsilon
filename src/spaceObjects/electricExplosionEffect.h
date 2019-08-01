@@ -19,7 +19,7 @@ public:
     virtual void draw3DTransparent() override;
 #endif
     virtual void drawOnRadar(sf::RenderTarget& window, sf::Vector2f position, float scale, bool longRange) override;
-    virtual void update(float delta);
+    virtual void update(float delta) override;
     
     void setSize(float size) { this->size = size; }
     void setOnRadar(bool on_radar) { this->on_radar = on_radar; }

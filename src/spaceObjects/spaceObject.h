@@ -167,7 +167,7 @@ public:
 #endif//FEATURE_3D_RENDERING
     virtual void drawOnRadar(sf::RenderTarget& window, sf::Vector2f position, float scale, bool longRange);
     virtual void drawOnGMRadar(sf::RenderTarget& window, sf::Vector2f position, float scale, bool longRange);
-    virtual void destroy();
+    virtual void destroy() override;
 
     virtual void setCallSign(string new_callsign) { callsign = new_callsign; }
     virtual string getCallSign() { return callsign; }
