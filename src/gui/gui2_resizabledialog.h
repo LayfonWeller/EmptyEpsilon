@@ -27,7 +27,7 @@ private:
     GuiLabel* title_bar;
     GuiToggleButton* minimize_button;
     GuiButton* close_button;
-    bool minimized;
+    bool minimized = false;
     float original_height;
     
     enum class ClickState

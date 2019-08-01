@@ -1,7 +1,7 @@
 #include "gui2_label.h"
 
 GuiLabel::GuiLabel(GuiContainer* owner, string id, string text, float text_size)
-: GuiElement(owner, id), text(text), text_size(text_size), text_color(sf::Color::White), text_alignment(ACenter), background(false), bold(false), vertical(false)
+: GuiElement(owner, id), text(std::move(text)), text_size(text_size)
 {
 }
 

@@ -8,19 +8,8 @@
 StreamingAcnDMXDevice::StreamingAcnDMXDevice()
 : update_thread(&StreamingAcnDMXDevice::updateLoop, this)
 {
-    for(int n=0; n<512; n++)
-        channel_data[n] = 0;
-    channel_count = 512;
-
-    multicast = false;
-    resend_delay = 50;
-    
-    universe = 1;
     for(int n=0; n<16; n++)
         uuid[n] = uint8_t(irandom(0, 255));
-    memset(source_name, 0, sizeof(source_name));
-    strcpy((char*)source_name, "EmptyEpsilon");
-    run_thread = false;
 }
 
 StreamingAcnDMXDevice::~StreamingAcnDMXDevice()

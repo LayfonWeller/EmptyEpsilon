@@ -18,8 +18,6 @@ enum EWeaponTubeState
 class WeaponTube : public sf::NonCopyable
 {
 public:
-    WeaponTube();
-
     void setParent(SpaceShip* parent);
     void setIndex(int index);
 
@@ -70,18 +68,18 @@ public:
 private:
     void spawnProjectile(float target_angle);
 
-    SpaceShip* parent;
-    int tube_index;
+    SpaceShip* parent = nullptr;
+    int tube_index = 0;
     
     //Configuration
-    float load_time;
-    uint32_t type_allowed_mask;
-    float direction;
+    float load_time = 8.0;
+    uint32_t type_allowed_mask  = (1 << MW_Count) - 1;
+    float direction = 0;
 
     //Runtime state
-    EMissileWeapons type_loaded;
-    EWeaponTubeState state;
-    float delay;
+    EMissileWeapons type_loaded = MW_None;
+    EWeaponTubeState state = WTS_Empty;
+    float delay = 0.0;
     int fire_count;
 };
 

@@ -7,7 +7,6 @@ REGISTER_SHIP_AI(MissileVolleyAI, "missilevolley");
 MissileVolleyAI::MissileVolleyAI(CpuShip* owner)
 : ShipAI(owner)
 {
-    flank_position = Unknown;
 }
 
 bool MissileVolleyAI::canSwitchAI()

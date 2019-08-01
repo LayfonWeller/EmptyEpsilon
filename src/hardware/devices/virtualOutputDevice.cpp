@@ -16,9 +16,7 @@ public:
     }
 };
 
-VirtualOutputDevice::VirtualOutputDevice()
-{
-    channel_count = 512;
+VirtualOutputDevice::VirtualOutputDevice() {
     for(int n=0; n<512; n++)
     {
         channel_data[n].value = 0;

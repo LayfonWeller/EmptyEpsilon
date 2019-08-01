@@ -6,8 +6,6 @@
 PhilipsHueDevice::PhilipsHueDevice()
 : update_thread(&PhilipsHueDevice::updateLoop, this)
 {
-    userfile = "philips_hue.name";
-    run_thread = false;
 }
 
 PhilipsHueDevice::~PhilipsHueDevice()

@@ -8,8 +8,6 @@ REGISTER_SHIP_AI(FighterAI, "fighter");
 FighterAI::FighterAI(CpuShip* owner)
 : ShipAI(owner)
 {
-    attack_state = dive;
-    timeout = 0.0;
     aggression = random(0.0, 0.25);
 }
 

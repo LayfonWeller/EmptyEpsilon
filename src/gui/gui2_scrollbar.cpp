@@ -2,7 +2,7 @@
 #include "gui2_arrowbutton.h"
 
 GuiScrollbar::GuiScrollbar(GuiContainer* owner, string id, int min_value, int max_value, int start_value, func_t func)
-: GuiElement(owner, id), min_value(min_value), max_value(max_value), value(start_value), value_size(1), func(func)
+: GuiElement(owner, id), min_value(min_value), max_value(max_value), value(start_value), func(func)
 {
     (new GuiArrowButton(this, id + "_UP_ARROW", 90, [this]() {
         setValue(getValue() - 1);

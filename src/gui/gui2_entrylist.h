@@ -21,7 +21,7 @@ private:
     
 protected:
     std::vector<GuiEntry> entries;
-    int selection_index;
+    int selection_index = -1;
     func_t func;
 public:
     GuiEntryList(GuiContainer* owner, string id, func_t func);

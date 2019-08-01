@@ -4,7 +4,6 @@
 GuiOverlay::GuiOverlay(GuiContainer* owner, string id, sf::Color color)
 : GuiElement(owner, id), color(color)
 {
-    texture_mode = TM_None;
     setSize(GuiElement::GuiSizeMax, GuiElement::GuiSizeMax);
 }
 

@@ -17,10 +17,6 @@ Mine::Mine()
 : SpaceObject(50, "Mine"), data(MissileWeaponData::getDataFor(MW_Mine))
 {
     setCollisionRadius(trigger_range);
-    triggered = false;
-    triggerTimeout = triggerDelay;
-    ejectTimeout = 0.0;
-    particleTimeout = 0.0;
     setRadarSignatureInfo(0.0, 0.05, 0.0);
 
     PathPlannerManager::getInstance()->addAvoidObject(this, trigger_range * 1.2f);
@@ -112,3 +108,9 @@ void Mine::explode()
     e->setOnRadar(true);
     destroy();
 }
+
+
+string Mine::getExportLine()
+{
+    return "Mine():setPosition(" + string(getPosition().x, 0) + ", " + string(getPosition().y, 0) + ")"; 
+} 

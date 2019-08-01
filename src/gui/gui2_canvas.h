@@ -7,16 +7,16 @@
 class GuiCanvas : public Renderable, public GuiContainer, public InputEventHandler
 {
 private:
-    GuiElement* click_element;
-    GuiElement* focus_element;
+    GuiElement* click_element = nullptr;
+    GuiElement* focus_element = nullptr;
     sf::Vector2f previous_mouse_position;
     sf::Vector2f previous_joystick_xy_position;
-    float previous_joystick_z_position;
-    float previous_joystick_r_position;
-    bool enable_debug_rendering;
+    float previous_joystick_z_position = 0.0;
+    float previous_joystick_r_position = 0.0;
+    bool enable_debug_rendering = false;
 public:
-    GuiCanvas();
-    virtual ~GuiCanvas();
+    GuiCanvas() = default;
+    virtual ~GuiCanvas() = default;
 
     virtual void render(sf::RenderTarget& window) override;
     virtual void handleKeyPress(sf::Event::KeyEvent key, int unicode) override;

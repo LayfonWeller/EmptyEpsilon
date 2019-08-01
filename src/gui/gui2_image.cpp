@@ -1,7 +1,7 @@
 #include "gui2_image.h"
 
 GuiImage::GuiImage(GuiContainer* owner, string id, string texture_name)
-: GuiElement(owner, id), color(sf::Color::White), texture_name(texture_name), angle(0)
+: GuiElement(owner, id), texture_name(texture_name), angle(0)
 {
 }
 

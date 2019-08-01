@@ -13,10 +13,10 @@ class Mine : public SpaceObject, public Updatable
 
 public:
     P<SpaceObject> owner;
-    bool triggered;       //Only valid on server.
-    float triggerTimeout; //Only valid on server.
-    float ejectTimeout;   //Only valid on server.
-    float particleTimeout;
+    bool triggered = false;              //Only valid on server.
+    float triggerTimeout = triggerDelay; //Only valid on server.
+    float ejectTimeout = 0.0;   //Only valid on server.
+    float particleTimeout = 0.0;
 
     Mine();
 
@@ -26,11 +26,11 @@ public:
     virtual void drawOnGMRadar(sf::RenderTarget& window, sf::Vector2f position, float scale, bool long_range) override;
     virtual void update(float delta) override;
 
-    virtual void collide(Collisionable* target, float force);
+    virtual void collide(Collisionable* target, float force) override;
     void eject();
     void explode();
     
-    virtual string getExportLine() override { return "Mine():setPosition(" + string(getPosition().x, 0) + ", " + string(getPosition().y, 0) + ")"; }
+    virtual string getExportLine() override;
 
 private:
     const MissileWeaponData& data;

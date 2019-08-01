@@ -13,7 +13,7 @@ public:
 class Nebula : public SpaceObject
 {
     static PVector<Nebula> nebula_list;
-    static const int cloud_count = 32;
+    static constexpr int cloud_count = 32;
 
     int radar_visual;
     NebulaCloud clouds[cloud_count];

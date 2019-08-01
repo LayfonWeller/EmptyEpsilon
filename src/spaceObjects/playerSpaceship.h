@@ -88,33 +88,33 @@ public:
     };
 
     // Visual indicators of hull damage and in-progress jumps
-    float hull_damage_indicator;
-    float jump_indicator;
+    float hull_damage_indicator = 0.0;
+    float jump_indicator = 0.0;
     // Target of a scan. Server-only value
     P<SpaceObject> scanning_target;
     // Time in seconds to scan an object if scanning_complexity is 0 (none)
-    float scanning_delay;
+    float scanning_delay = 0.0;
     // Number of sliders during a scan
-    int scanning_complexity;
+    int scanning_complexity = 0;
     // Number of times an object must be scanned to achieve a fully scanned
     // state
-    int scanning_depth;
+    int scanning_depth = 0;
     // Time in seconds it takes to recalibrate shields
     float shield_calibration_delay;
     // Ship automation features, mostly for single-person ships like fighters
-    bool auto_repair_enabled;
-    bool auto_coolant_enabled;
+    bool auto_repair_enabled = false;
+    bool auto_coolant_enabled = false;
     // Whether shields are up (true) or down
-    bool shields_active;
+    bool shields_active = false;
     // Password to join a ship. Default is empty.
-    string control_code;
+    string control_code = "";
 
 private:
     // soundManager index of the shield object
     int shield_sound;
     // Comms variables
-    ECommsState comms_state;
-    float comms_open_delay;
+    ECommsState comms_state = CS_Inactive;
+    float comms_open_delay = 0.0;
     string comms_target_name;
     string comms_incomming_message;
     P<SpaceObject> comms_target; // Server only
@@ -130,23 +130,23 @@ public:
     std::vector<sf::Vector2f> waypoints;
     
     // Scan probe capacity
-    int max_scan_probes;
-    int scan_probe_stock;
-    float scan_probe_recharge;
+    int max_scan_probes = 8;
+    int scan_probe_stock = 8;
+    float scan_probe_recharge = 0;
 
     // Main screen content
-    EMainScreenSetting main_screen_setting;
+    EMainScreenSetting main_screen_setting = MSS_Front;
     // Content overlaid on the main screen, such as comms
-    EMainScreenOverlay main_screen_overlay;
+    EMainScreenOverlay main_screen_overlay = MSO_HideComms;
 
-    bool activate_self_destruct;
-    uint32_t self_destruct_code[max_self_destruct_codes];
-    bool self_destruct_code_confirmed[max_self_destruct_codes];
+    bool activate_self_destruct = false;
+    uint32_t self_destruct_code[max_self_destruct_codes] = { };
+    bool self_destruct_code_confirmed[max_self_destruct_codes] = { false };
     ECrewPosition self_destruct_code_entry_position[max_self_destruct_codes];
     ECrewPosition self_destruct_code_show_position[max_self_destruct_codes];
-    float self_destruct_countdown;
+    float self_destruct_countdown = 0.0;
 
-    EAlertLevel alert_level;
+    EAlertLevel alert_level = AL_Normal;
 
     int32_t linked_science_probe_id;
 

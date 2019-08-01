@@ -8,11 +8,11 @@ class GuiLabel : public GuiElement
 protected:
     string text;
     float text_size;
-    sf::Color text_color;
-    EGuiAlign text_alignment;
-    bool background;
-    bool bold;
-    bool vertical;
+    sf::Color text_color = sf::Color::White;
+    EGuiAlign text_alignment = ACenter;
+    bool background = false;
+    bool bold = false;
+    bool vertical = false;
 public:
     GuiLabel(GuiContainer* owner, string id, string text, float text_size);
 

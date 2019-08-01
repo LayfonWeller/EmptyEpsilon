@@ -10,13 +10,13 @@ class SerialPort;
 class DMX512SerialDevice : public HardwareOutputDevice
 {
 private:
-    SerialPort* port;
+    SerialPort* port = nullptr;
     sf::Thread update_thread;
     
-    bool run_thread;
-    int channel_count;
-    int resend_delay;
-    uint8_t data_stream[1+512];
+    bool run_thread = false;
+    int channel_count = 512;
+    int resend_delay = 25;
+    uint8_t data_stream[1+512] = {0};
 public:
     DMX512SerialDevice();
     virtual ~DMX512SerialDevice();

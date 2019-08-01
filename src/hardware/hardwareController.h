@@ -55,10 +55,10 @@ private:
     std::vector<HardwareMappingEvent> events;
     std::vector<float> channels;
 public:
-    HardwareController();
+    HardwareController() = default;
     ~HardwareController();
     
-    void loadConfiguration(string filename);
+    void loadConfiguration(const string& filename);
     
     virtual void update(float delta) override;
 

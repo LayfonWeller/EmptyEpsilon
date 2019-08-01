@@ -15,16 +15,16 @@ private:
     sf::Thread update_thread;
     sf::UdpSocket socket;
     
-    bool run_thread;
-    int channel_count;
-    uint8_t channel_data[512];
+    bool run_thread = false;
+    int channel_count = 512;
+    uint8_t channel_data[512] = {0};
     
-    int resend_delay;
-    bool multicast;
+    int resend_delay = 50;
+    bool multicast = false;
     
-    int universe;
+    int universe = 1;
     uint8_t uuid[16];
-    uint8_t source_name[64];
+    uint8_t source_name[64] = "EmptyEpsilon";
 public:
     StreamingAcnDMXDevice();
     virtual ~StreamingAcnDMXDevice();

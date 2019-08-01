@@ -6,7 +6,7 @@
 class MouseRenderer : public Renderable
 {
 public:
-    bool visible;
+    bool visible = true;
 
     MouseRenderer();
 

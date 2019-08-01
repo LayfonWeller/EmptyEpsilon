@@ -1,7 +1,7 @@
 #include "gui2_entrylist.h"
 
 GuiEntryList::GuiEntryList(GuiContainer* owner, string id, func_t func)
-: GuiElement(owner, id), selection_index(-1), func(func)
+: GuiElement(owner, id), func(func)
 {
 }
 

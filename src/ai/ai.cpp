@@ -9,14 +9,6 @@ REGISTER_SHIP_AI(ShipAI, "default");
 ShipAI::ShipAI(CpuShip* owner)
 : owner(owner)
 {
-    missile_fire_delay = 0.0;
-
-    has_missiles = false;
-    has_beams = false;
-    beam_weapon_range = 0.0;
-    weapon_direction = EWeaponDirection::Front;
-    
-    update_target_delay = 0.0;
 }
 
 ShipAI::~ShipAI()

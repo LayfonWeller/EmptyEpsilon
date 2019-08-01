@@ -5,7 +5,7 @@
 
 class BlackHole : public SpaceObject, public Updatable
 {
-    float update_delta;
+    float update_delta = 0.0;
 public:
     BlackHole();
 

@@ -8,7 +8,7 @@ class GuiToggleButton : public GuiButton
 public:
     typedef std::function<void(bool active)> func_t;
 private:
-    bool value;
+    bool value = false;
     func_t toggle_func;
 
 public:

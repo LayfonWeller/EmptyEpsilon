@@ -1,18 +1,6 @@
 #include "gui2_canvas.h"
 #include "gui2_element.h"
 
-GuiCanvas::GuiCanvas()
-: click_element(nullptr), focus_element(nullptr)
-{
-    previous_joystick_z_position = 0;
-    previous_joystick_r_position = 0;
-    enable_debug_rendering = false;
-}
-
-GuiCanvas::~GuiCanvas()
-{
-}
-
 void GuiCanvas::render(sf::RenderTarget& window)
 {
     sf::Vector2f window_size = window.getView().getSize();

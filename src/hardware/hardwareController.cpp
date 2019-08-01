@@ -15,10 +15,6 @@
 
 #include "hardwareMappingEffects.h"
 
-HardwareController::HardwareController()
-{
-}
-
 HardwareController::~HardwareController()
 {
     for(HardwareOutputDevice* device : devices)
@@ -29,7 +25,7 @@ HardwareController::~HardwareController()
         delete event.effect;
 }
 
-void HardwareController::loadConfiguration(string filename)
+void HardwareController::loadConfiguration(const string& filename)
 {
     FILE* f = fopen(filename.c_str(), "r");
     if (!f)

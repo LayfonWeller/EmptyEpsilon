@@ -3,16 +3,12 @@
 #include "explosionEffect.h"
 
 MissileWeapon::MissileWeapon(string multiplayerName, const MissileWeaponData& data)
-: SpaceObject(10, multiplayerName), data(data)
+: SpaceObject(10, std::move(multiplayerName)), data(data)
 {
-    target_id = -1;
-    target_angle = 0;
     lifetime = data.lifetime;
     
     registerMemberReplication(&target_id);
     registerMemberReplication(&target_angle);
-
-    launch_sound_played = false;
 }
 
 void MissileWeapon::drawOnRadar(sf::RenderTarget& window, sf::Vector2f position, float scale, bool long_range)

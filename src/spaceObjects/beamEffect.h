@@ -1,13 +1,15 @@
 #ifndef BEAM_EFFECT_H
 #define BEAM_EFFECT_H
 
+#include <limits>
+
 #include "spaceObject.h"
 
 class BeamEffect : public SpaceObject, public Updatable
 {
-    float lifetime;
-    int32_t sourceId;
-    int32_t target_id;
+    float lifetime = 1.0;
+    int32_t sourceId = std::numeric_limits<int32_t>::max();
+    int32_t target_id = std::numeric_limits<int32_t>::max();
     sf::Vector3f sourceOffset;
     sf::Vector3f targetOffset;
     sf::Vector2f targetLocation;

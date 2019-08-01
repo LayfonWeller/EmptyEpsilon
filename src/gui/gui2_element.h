@@ -27,16 +27,16 @@ private:
     sf::Vector2f position;
     sf::Vector2f size;
     sf::FloatRect margins;
-    EGuiAlign position_alignment;
-    bool destroyed;
+    EGuiAlign position_alignment = ATopLeft;
+    bool destroyed = false;
 protected:
     GuiContainer* owner;
-    sf::FloatRect rect;
-    bool visible;
-    bool enabled;
-    bool hover;
-    bool focus;
-    bool active;
+    sf::FloatRect rect = {0.0, 0.0, 0.0, 0.0};
+    bool visible = true;
+    bool enabled = true;
+    bool hover = false;
+    bool focus = false;
+    bool active = false;
     string id;
 public:
     constexpr static float GuiSizeMatchHeight = -1.0;
@@ -48,10 +48,10 @@ public:
 
     virtual void onDraw(sf::RenderTarget& window) {}
     virtual bool onMouseDown(sf::Vector2f position);
-    virtual void onMouseDrag(sf::Vector2f position);
-    virtual void onMouseUp(sf::Vector2f position);
+    virtual void onMouseDrag(sf::Vector2f position) {};
+    virtual void onMouseUp(sf::Vector2f position) {};
     virtual bool onKey(sf::Event::KeyEvent key, int unicode);
-    virtual void onHotkey(const HotkeyResult& key);
+    virtual void onHotkey(const HotkeyResult& key) {};
     virtual bool onJoystickXYMove(sf::Vector2f position);
     virtual bool onJoystickZMove(float position);
     virtual bool onJoystickRMove(float position);

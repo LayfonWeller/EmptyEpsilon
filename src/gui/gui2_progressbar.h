@@ -9,8 +9,8 @@ private:
     float min;
     float max;
     float value;
-    sf::Color color;
-    bool drawBackground;
+    sf::Color color = sf::Color(255, 255, 255, 64);
+    bool drawBackground = true;
 
     string text;
 public:

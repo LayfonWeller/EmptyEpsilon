@@ -2,7 +2,7 @@
 #include "gui2_keyvaluedisplay.h"
 
 GuiKeyValueDisplay::GuiKeyValueDisplay(GuiContainer* owner, string id, float div_distance, string key, string value)
-: GuiElement(owner, id), div_distance(div_distance), key(key), value(value), text_size(20), color(sf::Color::White)
+: GuiElement(owner, id), div_distance(div_distance), key(std::move(key)), value(std::move(value))
 {
 }
 

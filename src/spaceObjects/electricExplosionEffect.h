@@ -8,10 +8,10 @@ class ElectricExplosionEffect : public SpaceObject, public Updatable
     constexpr static float maxLifetime = 4.0;
     constexpr static int particleCount = 1000;
     
-    float lifetime;
-    float size;
+    float lifetime = maxLifetime;
+    float size = 1.0;
     sf::Vector3f particleDirections[particleCount];
-    bool on_radar;
+    bool on_radar = false;
 public:
     ElectricExplosionEffect();
 

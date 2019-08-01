@@ -25,7 +25,7 @@ class CpuShip : public SpaceShip
     static constexpr float auto_system_repair_per_second = 0.005f;
     static constexpr float missile_resupply_time = 10.0f;
 
-    EAIOrder orders;                    //Server only
+    EAIOrder orders = AI_Idle;        //Server only
     sf::Vector2f order_target_location; //Server only
     P<SpaceObject> order_target;        //Server only
     ShipAI* ai;
@@ -60,7 +60,7 @@ public:
 
     virtual string getExportLine() override;
 
-    float missile_resupply;
+    float missile_resupply = 0.0;
 };
 string getAIOrderString(EAIOrder order);
 

@@ -5,12 +5,6 @@ DebugRenderer::DebugRenderer()
 : Renderable(mouseLayer)
 {
     fps_timer.restart();
-    fps = 0.0;
-    fps_counter = 0;
-
-    show_fps = false;
-    show_datarate = false;
-    show_timing_graph = false;
 
 #ifdef DEBUG
     show_fps = show_datarate = true;

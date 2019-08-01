@@ -21,14 +21,13 @@ GuiResizableDialog::GuiResizableDialog(GuiContainer* owner, string id, string ti
     });
     minimize_button->setSize(50, GuiElement::GuiSizeMax);
     
-    title_bar = new GuiLabel(title_bar_layout, "", title, 20);
+    title_bar = new GuiLabel(title_bar_layout, "", std::move(title), 20);
     title_bar->addBackground()->setAlignment(ACenterLeft)->setPosition(0, 0, ATopLeft)->setSize(GuiElement::GuiSizeMax, GuiElement::GuiSizeMax);
     
     contents = new GuiElement(this, "");
     contents->setPosition(resize_icon_size / 2.0, title_bar_height, ATopLeft);
     
     min_size = sf::Vector2f(200, title_bar_height + resize_icon_size);
-    minimized = false;
 }
 
 void GuiResizableDialog::minimize(bool minimize)
@@ -56,7 +55,7 @@ bool GuiResizableDialog::isMinimized() const
 
 void GuiResizableDialog::setTitle(string title)
 {
-    title_bar->setText(title);
+    title_bar->setText(std::move(title));
 }
 
 void GuiResizableDialog::onDraw(sf::RenderTarget& window)

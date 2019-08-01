@@ -9,8 +9,8 @@ class GuiScrollText : public GuiElement
 protected:
     GuiScrollbar* scrollbar;
     string text;
-    float text_size;
-    bool auto_scroll_down;
+    float text_size = 30;
+    bool auto_scroll_down = false;
 public:
     GuiScrollText(GuiContainer* owner, string id, string text);
     
@@ -18,7 +18,7 @@ public:
     GuiScrollText* disableAutoScrollDown() { auto_scroll_down = false; return this; }
 
     GuiScrollText* setText(string text);
-    string getText() const;
+    const string& getText() const;
     GuiScrollText* setTextSize(float text_size) { this->text_size = text_size; return this; }
     
     GuiScrollText* setScrollbarWidth(float width);

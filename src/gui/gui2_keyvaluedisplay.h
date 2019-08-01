@@ -9,8 +9,8 @@ protected:
     float div_distance;
     string key;
     string value;
-    float text_size;
-    sf::Color color;
+    float text_size = 20;
+    sf::Color color = sf::Color::White;
     string icon_texture;
 public:
     GuiKeyValueDisplay(GuiContainer* owner, string id, float div_distance, string key, string value);

@@ -31,8 +31,7 @@ Artifact::Artifact()
     current_model_data_name = "artifact" + string(irandom(1, 8));
     model_data_name = current_model_data_name;
     model_info.setData(current_model_data_name);
-    
-    allow_pickup = false;
+
 }
 
 void Artifact::update(float delta)

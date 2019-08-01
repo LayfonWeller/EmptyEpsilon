@@ -5,12 +5,6 @@
 DMX512SerialDevice::DMX512SerialDevice()
 : update_thread(&DMX512SerialDevice::updateLoop, this)
 {
-    port = nullptr;
-    for(int n=0; n<1+512; n++)
-        data_stream[n] = 0;
-    channel_count = 512;
-    resend_delay = 25;
-    run_thread = false;
 }
 
 DMX512SerialDevice::~DMX512SerialDevice()
