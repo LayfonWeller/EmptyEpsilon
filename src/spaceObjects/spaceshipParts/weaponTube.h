@@ -80,7 +80,7 @@ private:
     EMissileWeapons type_loaded = MW_None;
     EWeaponTubeState state = WTS_Empty;
     float delay = 0.0;
-    int fire_count;
+    int fire_count = 1;
 };
 
 #endif//WEAPON_TUBE_H

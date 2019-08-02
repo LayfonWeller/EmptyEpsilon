@@ -111,7 +111,7 @@ public:
 
 private:
     // soundManager index of the shield object
-    int shield_sound;
+    // int shield_sound;
     // Comms variables
     ECommsState comms_state = CS_Inactive;
     float comms_open_delay = 0.0;

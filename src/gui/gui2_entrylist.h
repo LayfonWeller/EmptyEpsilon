@@ -16,7 +16,7 @@ private:
     public:
         string name;
         string value;
-        GuiEntry(string name, string value) : name(name), value(value) {}
+        GuiEntry(string name, string value) : name(std::move(name)), value(std::move(value)) {}
     };
     
 protected:
