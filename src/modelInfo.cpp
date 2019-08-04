@@ -5,11 +5,6 @@
 #include "featureDefs.h"
 #include "main.h"
 
-ModelInfo::ModelInfo()
-: last_engine_particle_time(0), last_warp_particle_time(0), engine_scale(0), warp_scale(0.0f)
-{
-}
-
 void ModelInfo::setData(string name)
 {
     this->data = ModelData::getModel(name);
