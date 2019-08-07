@@ -8,7 +8,6 @@
 MouseCalibrator::MouseCalibrator(string filename)
 : filename(std::move(filename))
 {
-    state = 0;
     InputHandler::mouse_transform = sf::Transform();
     
     (new GuiLabel(this, "MAIN_LABEL", "Touch Calibration", 50))->setPosition(0, 100, ATopCenter)->setSize(0, 300);

@@ -16,7 +16,7 @@ class MouseCalibrator : public GuiCanvas, public Updatable
 {
 private:
     string filename;
-    int state;
+    int state = 0;
     GuiPanel* screen_box[3];
     GuiImage* test_box;
     GuiButton* ready_button;
