@@ -39,7 +39,7 @@ void GuiEntryList::setEntryValue(int index, string value)
 {
     if (index < 0 || index >= (int)entries.size())
         return;
-    entries[index].value = value;
+    entries[index].value = std::move(value);
     entriesChanged();
 }
 
@@ -47,19 +47,19 @@ void GuiEntryList::setEntry(int index, string name, string value)
 {
     if (index < 0 || index >= (int)entries.size())
         return;
-    entries[index].value = value;
-    entries[index].name = name;
+    entries[index].value = std::move(value);
+    entries[index].name = std::move(name);
     entriesChanged();
 }
 
 int GuiEntryList::addEntry(string name, string value)
 {
-    entries.emplace_back(name, value);
+    entries.emplace_back(std::move(name), std::move(value));
     entriesChanged();
     return entries.size() - 1;
 }
 
-int GuiEntryList::indexByValue(string value) const
+int GuiEntryList::indexByValue(const string& value) const
 {
     for(unsigned int n=0; n<entries.size(); n++)
         if (entries[n].value == value)

@@ -63,7 +63,7 @@ REGISTER_SCRIPT_SUBCLASS_NO_CREATE(ShipTemplateBasedObject, SpaceObject)
 }
 
 ShipTemplateBasedObject::ShipTemplateBasedObject(float collision_range, string multiplayer_name, float multiplayer_significant_range)
-: SpaceObject(collision_range, multiplayer_name, multiplayer_significant_range)
+: SpaceObject(collision_range, std::move(multiplayer_name), multiplayer_significant_range)
 {
     setCollisionPhysics(true, true);
 

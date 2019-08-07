@@ -52,20 +52,20 @@ PackResourceProvider::PackResourceProvider(string filename)
     fclose(f);
 }
 
-P<ResourceStream> PackResourceProvider::getResourceStream(const string filename)
+P<ResourceStream> PackResourceProvider::getResourceStream(const string& filename)
 {
     if (files.find(filename) != files.end())
         return new PackResourceStream(this->filename, files.find(filename)->second);
     return NULL;
 }
 
-std::vector<string> PackResourceProvider::findResources(const string searchPattern)
+std::vector<string> PackResourceProvider::findResources(const string& searchPattern)
 {
     std::vector<string> ret;
     return ret;
 }
 
-void PackResourceProvider::addPackResourcesForDirectory(const string directory)
+void PackResourceProvider::addPackResourcesForDirectory(const string& directory)
 {
     DIR* dir = opendir(directory.c_str());
     if (!dir)

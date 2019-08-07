@@ -6,7 +6,7 @@
 #include "gui/gui2_button.h"
 
 MouseCalibrator::MouseCalibrator(string filename)
-: filename(filename)
+: filename(std::move(filename))
 {
     state = 0;
     InputHandler::mouse_transform = sf::Transform();

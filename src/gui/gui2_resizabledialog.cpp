@@ -5,7 +5,7 @@
 #include "gui2_togglebutton.h"
 
 GuiResizableDialog::GuiResizableDialog(GuiContainer* owner, string id, string title)
-: GuiPanel(owner, id)
+: GuiPanel(owner, std::move(id))
 {
     GuiAutoLayout* title_bar_layout = new GuiAutoLayout(this, "", GuiAutoLayout::LayoutHorizontalRightToLeft);
     title_bar_layout->setMargins(25, 0)->setSize(GuiElement::GuiSizeMax, title_bar_height);
