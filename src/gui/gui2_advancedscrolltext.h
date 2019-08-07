@@ -18,7 +18,7 @@ protected:
     std::vector<Entry> entries;
     GuiScrollbar* scrollbar;
     float text_size = 30;
-    bool auto_scroll_down;
+    bool auto_scroll_down = false;
 public:
     GuiAdvancedScrollText(GuiContainer* owner, string id);
     

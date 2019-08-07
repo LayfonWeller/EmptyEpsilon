@@ -21,15 +21,16 @@ public:
     string impulse_sound_file = "engine.wav";
     P<ShipTemplate> ship_template;
 
-    int shield_count;
-    float shield_level[max_shield_count];
-    float shield_max[max_shield_count];
-    float hull_strength, hull_max;
-    float shield_hit_effect[max_shield_count];
-    bool can_be_destroyed;
+    int shield_count = 0;
+    float shield_level[max_shield_count] = {0.0f};
+    float shield_max[max_shield_count] = {0.0f};
+    float hull_strength = 100.0f;
+    float hull_max = 100.0f;
+    float shield_hit_effect[max_shield_count] = {0.0f};
+    bool can_be_destroyed = true;
 
-    bool shares_energy_with_docked;       //[config]
-    bool repair_docked;                   //[config]
+    bool shares_energy_with_docked = false;       //[config]
+    bool repair_docked = false;                   //[config]
 public:
     ShipTemplateBasedObject(float collision_range, string multiplayer_name, float multiplayer_significant_range=-1);
 

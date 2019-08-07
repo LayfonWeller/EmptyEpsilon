@@ -67,15 +67,6 @@ ShipTemplateBasedObject::ShipTemplateBasedObject(float collision_range, string m
 {
     setCollisionPhysics(true, true);
 
-    shield_count = 0;
-    for(int n=0; n<max_shield_count; n++)
-    {
-        shield_level[n] = 0.0;
-        shield_max[n] = 0.0;
-        shield_hit_effect[n] = 0.0;
-    }
-    hull_strength = hull_max = 100.0;
-
     registerMemberReplication(&template_name);
     registerMemberReplication(&type_name);
     registerMemberReplication(&shield_count);
@@ -91,7 +82,6 @@ ShipTemplateBasedObject::ShipTemplateBasedObject(float collision_range, string m
 
     callsign = "[" + string(getMultiplayerId()) + "]";
     
-    can_be_destroyed = true;
     registerMemberReplication(&can_be_destroyed);
 }
 
