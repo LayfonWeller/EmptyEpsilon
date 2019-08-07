@@ -30,7 +30,7 @@
 
 #include "serialDriver.h"
 
-SerialPort::SerialPort(string name)
+SerialPort::SerialPort(const string& name)
 {
     std::vector<string> ports = portsByPseudoDriverName(name);
     if (ports.size() > 0)
@@ -540,13 +540,13 @@ std::vector<string> SerialPort::portsByPseudoDriverName(string driver_name)
 {
     std::vector<string> driver_names = driver_name.split(";");
     std::vector<string> names;
-    for(string driver : driver_names)
+    for(const string& driver : driver_names)
     {
-        for(string port : getAvailablePorts())
-        {
-            if (getPseudoDriverName(port) == driver)
-                names.push_back(port);
-        }
+        auto availablePorts = getAvailablePorts();
+        std::copy_if(std::begin(availablePorts), std::end(availablePorts), std::back_inserter(names),
+            [&driver](const string& port) -> bool {
+                return getPseudoDriverName(port) == driver;
+            });
     }
     return names;
 }
