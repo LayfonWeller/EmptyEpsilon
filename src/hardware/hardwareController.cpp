@@ -186,8 +186,8 @@ void HardwareController::update(float delta)
 {
     if (channels.size() < 1)
         return;
-    for(float& value : channels)
-        value = 0.0;
+    std::fill(std::begin(channels), std::end(channels), 0.0f);
+    
     for(HardwareMappingState& state : states)
     {
         float value;

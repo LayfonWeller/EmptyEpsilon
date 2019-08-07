@@ -36,12 +36,10 @@ void GuiCustomShipFunctions::checkEntries()
 bool GuiCustomShipFunctions::hasEntries()
 {
     checkEntries();
-    for(Entry& e : entries)
+    return std::find_if(std::begin(entries), std::end(entries), [](const Entry& e) -> bool
     {
-        if (e.element)
-            return true;
-    }
-    return false;
+        return (e.element);
+    }) != std::end(entries);
 }
 
 void GuiCustomShipFunctions::createEntries()

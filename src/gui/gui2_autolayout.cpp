@@ -34,12 +34,9 @@ void GuiAutoLayout::drawElements(sf::FloatRect parent_rect, sf::RenderTarget& wi
         break;
     case LayoutHorizontalRows:
         {
-            int count = 0;
-            for(GuiElement* element : elements)
-            {
-                if (element->isVisible())
-                    count += 1;
-            }
+            int count = std::count_if(elements.begin(), elements.end(), [](GuiElement* element){ 
+                return element->isVisible();
+            });
             for(GuiElement* element : elements)
             {
                 if (element->isVisible())
@@ -54,12 +51,9 @@ void GuiAutoLayout::drawElements(sf::FloatRect parent_rect, sf::RenderTarget& wi
         return;
     case LayoutVerticalColumns:
         {
-            int count = 0;
-            for(GuiElement* element : elements)
-            {
-                if (element->isVisible())
-                    count += 1;
-            }
+            int count = std::count_if(elements.begin(), elements.end(), [](GuiElement* element){ 
+                return element->isVisible();
+            });
             for(GuiElement* element : elements)
             {
                 if (element->isVisible())

@@ -8,10 +8,11 @@ GuiEntryList::GuiEntryList(GuiContainer* owner, string id, func_t func)
 GuiEntryList* GuiEntryList::setOptions(std::vector<string> options)
 {
     entries.clear();
-    for(string option : options)
-    {
-        entries.emplace_back(option, option);
+    std::transform(std::begin(options), std::end(options), std::back_inserter(entries),
+        [](const string& option) -> GuiEntry {
+            return {option, option};
     }
+    );
     entriesChanged();
     return this;
 }
