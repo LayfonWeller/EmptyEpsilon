@@ -75,7 +75,7 @@ void GuiShipInternalView::onDraw(sf::RenderTarget& window)
             foreach(RepairCrew, rc, crew)
             {
                 int id = rc->getMultiplayerId();
-                crew_list.push_back(new GuiShipCrew(room_container, id + "_CREW", rc, [this](P<RepairCrew> crew_member){
+                crew_list.push_back(new GuiShipCrew(room_container, std::to_string(id) + "_CREW", rc, [this](P<RepairCrew> crew_member){
                     if (selected_crew_member)
                         selected_crew_member->selected = false;
                     selected_crew_member = crew_member;

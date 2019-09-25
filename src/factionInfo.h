@@ -16,7 +16,7 @@ enum EFactionVsFactionState
 class FactionInfo : public PObject
 {
 private:
-    int callsign_counter;
+    // int callsign_counter;
 public:
     FactionInfo();
 

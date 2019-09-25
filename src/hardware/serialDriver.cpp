@@ -30,7 +30,7 @@
 
 #include "serialDriver.h"
 
-SerialPort::SerialPort(const string& name)
+SerialPort::SerialPort(string name)
 {
     std::vector<string> ports = portsByPseudoDriverName(name);
     if (ports.size() > 0)

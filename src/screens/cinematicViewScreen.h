@@ -36,7 +36,7 @@ private:
     // camera_position is a Vector3, so no need to declare one here.
     sf::Vector2f camera_position_2D;
     float target_rotation = 0.0f;
-    float target_velocity = 0.0f;
+    // float target_velocity = 0.0f;
 
     P<SpaceObject> target_of_target;
 
